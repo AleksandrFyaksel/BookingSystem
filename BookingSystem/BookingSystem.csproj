@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	
+	
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.json" />
+		<None Remove="Images\Floor1.png" />
+		<None Remove="Images\Parking_BGUIR.png" />
+		<None Remove="Resource\background.jpg" />
+		<None Remove="Resource\icon.ico" />
+		<None Remove="Resource\pointer.png" />
+		
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Images\Parking_BGUIR.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BookingSystem.Business\BookingSystem.Business.csproj" />
+		<ProjectReference Include="..\BookingSystem.Controls\BookingSystem.Controls.csproj" />
+		<ProjectReference Include="..\BookingSystem.DAL\BookingSystem.DAL.csproj" />
+		<ProjectReference Include="..\BookingSystem.Domain\BookingSystem.Domain.csproj" />
+		<ProjectReference Include="..\BookingSystem.TestData\BookingSystem.TestData.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Entrance.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="RegistrationWindow.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Images\Floor1.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resource\background.jpg">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resource\icon.ico">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resource\pointer.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+</Project>

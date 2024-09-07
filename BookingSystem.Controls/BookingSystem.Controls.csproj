@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookingSystem.DAL\BookingSystem.DAL.csproj" />
+    <ProjectReference Include="..\BookingSystem.Domain\BookingSystem.Domain.csproj" />
+    <ProjectReference Include="..\BookingSystem.TestData\BookingSystem.TestData.csproj" />
+  </ItemGroup>
+
+</Project>

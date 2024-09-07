@@ -1,0 +1,133 @@
+﻿<Window x:Class="BookingSystem.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление Этажами и Офисами" Height="600" Width="800"
+        Icon="pack://application:,,,/BookingSystem;component/Resources/icon.ico">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="24" FontWeight="Bold" Text="Управление Этажами и Офисами" Margin="10" Grid.Row="0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Управление Пользователями -->
+            <StackPanel Margin="10" Grid.Column="0">
+                <TextBlock FontSize="20" FontWeight="Bold" Margin="0,0,0,10" VerticalAlignment="Top"><Run Text="Управление"/><Run Language="ru-ru" Text=" "/><Run Text="Пользователями"/></TextBlock>
+                <Button Content="Добавить Пользователя" Click="AddUserButton_Click" Margin="0,5"/>
+                <Button Content="Редактировать Пользователя" Click="EditUserButton_Click" Margin="0,5"/>
+                <Button Content="Удалить Пользователя" Click="DeleteUserButton_Click" Margin="0,5"/>
+                <Button Content="Обновить Список" Click="RefreshUsersButton_Click" Margin="0,5"/>
+                <DataGrid x:Name="UsersDataGrid" AutoGenerateColumns="False" Margin="0,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id_User}" Width="*"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="*"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding email}" Width="*"/>
+                        <DataGridTextColumn Header="Роль" Binding="{Binding role}" Width="*"/>
+                        <DataGridTemplateColumn Header="Фото" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding photo}" Width="50" Height="50" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!-- Управление Оборудованием -->
+            <StackPanel Margin="10" Grid.Column="1">
+                <TextBlock FontSize="20" FontWeight="Bold" Text="Управление Оборудованием" Margin="0,0,0,10"/>
+                <Button Content="Добавить Оборудование" Click="AddEquipmentButton_Click" Margin="0,5"/>
+                <Button Content="Редактировать Оборудование" Click="EditEquipmentButton_Click" Margin="0,5"/>
+                <Button Content="Удалить Оборудование" Click="DeleteEquipmentButton_Click" Margin="0,5"/>
+                <Button Content="Обновить Список" Click="RefreshEquipmentButton_Click" Margin="0,5"/>
+                <DataGrid x:Name="EquipmentDataGrid" AutoGenerateColumns="False" Margin="0,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id_Equipment}" Width="*"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding name}" Width="*"/>
+                        <DataGridTextColumn Header="Тип" Binding="{Binding type}" Width="*"/>
+                        <DataGridTextColumn Header="Количество" Binding="{Binding quantity}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!-- Управление Мебелью -->
+            <StackPanel Margin="10" Grid.Column="2">
+                <TextBlock FontSize="20" FontWeight="Bold" Text="Управление Мебелью" Margin="0,0,0,10"/>
+                <Button Content="Добавить Мебель" Click="AddFurnitureButton_Click" Margin="0,5"/>
+                <Button Content="Редактировать Мебель" Click="EditFurnitureButton_Click" Margin="0,5"/>
+                <Button Content="Удалить Мебель" Click="DeleteFurnitureButton_Click" Margin="0,5"/>
+                <Button Content="Обновить Список" Click="RefreshFurnitureButton_Click" Margin="0,5"/>
+                <DataGrid x:Name="FurnitureDataGrid" AutoGenerateColumns="False" Margin="0,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id_Furniture}" Width="*"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding nameFurniture}" Width="*"/>
+                        <DataGridTextColumn Header="Тип" Binding="{Binding typeFurniture}" Width="*"/>
+                        <DataGridTextColumn Header="Количество" Binding="{Binding quantityFurniture}" Width="*"/>
+                       
+                        <DataGridTemplateColumn Header="Фото" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding photo}" Width="50" Height="50" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!-- Управление Площадями -->
+            <StackPanel Margin="10" Grid.Column="3">
+                <TextBlock FontSize="20" FontWeight="Bold" Text="Управление Площадями" Margin="0,0,0,10"/>
+                <Button Content="Добавить Площадь" Click="AddAreaButton_Click" Margin="0,5"/>
+                <Button Content="Редактировать Площадь" Click="EditAreaButton_Click" Margin="0,5"/>
+                <Button Content="Удалить Площадь" Click="DeleteAreaButton_Click" Margin="0,5"/>
+                <Button Content="Обновить Список" Click="RefreshAreasButton_Click" Margin="0,5"/>
+                <DataGrid x:Name="AreasDataGrid" AutoGenerateColumns="False" Margin="0,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id_Areas}" Width="*"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding name}" Width="*"/>
+                        <DataGridTextColumn Header="Номер" Binding="{Binding number}" Width="*"/>
+                        <DataGridTextColumn Header="Цвет" Binding="{Binding color}" Width="*"/>
+                        <DataGridTextColumn Header="Размер" Binding="{Binding areaSize}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!-- Управление Офисами -->
+            <StackPanel Margin="10" Grid.Column="4">
+                <TextBlock FontSize="20" FontWeight="Bold" Text="Управление Офисами" Margin="0,0,0,10"/>
+                <Button Content="Добавить Офис" Click="AddOfficeButton_Click" Margin="0,5"/>
+                <Button Content="Редактировать Офис" Click="EditOfficeButton_Click" Margin="0,5"/>
+                <Button Content="Удалить Офис" Click="DeleteOfficeButton_Click" Margin="0,5"/>
+                <Button Content="Обновить Офисы" Click="RefreshOfficesButton_Click" Margin="0,5"/>
+                <DataGrid x:Name="OfficesDataGrid" AutoGenerateColumns="False" Margin="0,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id_Offices}" Width="*"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding name}" Width="*"/>
+                        <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="*"/>
+                        <DataGridTextColumn Header="Количество Этажей" Binding="{Binding numberOfFloors}" Width="*"/>
+                        <DataGridTemplateColumn Header="Фото" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding photo}" Width="50" Height="50" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,78 @@
+﻿<Window x:Class="BookingSystem.BookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:booking="clr-namespace:BookingSystem"
+        xmlns:drawing="clr-namespace:Drawing"
+        mc:Ignorable="d"
+        Title="BookingWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ToolBarTray Orientation="Vertical">
+            <ToolBar>
+                <Label Content="Офис:" Margin="0,10,0,0"/>
+                <ComboBox x:Name="OfficesComboBox" Width="200" Margin="0,5,0,10" SelectionChanged="OfficesComboBox_SelectionChanged"/>
+
+                <Label Content="Этаж:" Margin="0,10,0,0"/>
+                <ComboBox x:Name="FloorsComboBox" Width="200" Margin="0,5,0,10" SelectionChanged="FloorsComboBox_SelectionChanged"/>
+
+                <Separator Margin="0,10"/>
+
+                <RadioButton Margin="0,3" x:Name="cmdSelectMove">
+                    <StackPanel>
+                        <Image Source="Resources/pointer.png" Width="35" Height="35" />
+                        <TextBlock>Select/Move</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Margin="0,3" IsChecked="True" x:Name="cmdAdd">
+                    <StackPanel>
+                        <Rectangle Width="30" Height="30" Stroke="SteelBlue" StrokeThickness="3" Fill="AliceBlue"></Rectangle>
+                        <TextBlock>Add Workspaces</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Margin="0,3" x:Name="cmdAddCircle">
+                    <StackPanel>
+                        <Ellipse Width="30" Height="30" Stroke="SteelBlue" StrokeThickness="3" Fill="AliceBlue"></Ellipse>
+                        <TextBlock>Add Parking Spaces</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Margin="0,3" x:Name="cmdDelete">
+                    <StackPanel>
+                        <Path Stroke="SteelBlue" StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round"
+                              Fill="Red" HorizontalAlignment="Center">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <PathGeometry>
+                                        <PathFigure StartPoint="0,0">
+                                            <LineSegment Point="18,18"></LineSegment>
+                                        </PathFigure>
+                                        <PathFigure StartPoint="0,18">
+                                            <LineSegment Point="18,0"></LineSegment>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                        <TextBlock>Delete Square</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <Button Content="Load Background" Click="LoadBackground_Click" Margin="0,3"/>
+                <Button Content="Remove Background" Click="RemoveBackground_Click" Margin="0,3"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <Border Grid.Column="1" Margin="3" BorderBrush="SteelBlue" BorderThickness="1">
+            <drawing:DrawingCanvas x:Name="drawingSurface" Background="White" ClipToBounds="True"
+                                   MouseLeftButtonDown="drawingSurface_MouseLeftButtonDown"
+                                   MouseLeftButtonUp="drawingSurface_MouseLeftButtonUp"
+                                   MouseRightButtonDown="drawingSurface_MouseRightButtonDown"
+                                   MouseRightButtonUp="drawingSurface_MouseRightButtonUp"
+                                   MouseMove="drawingSurface_MouseMove">
+            </drawing:DrawingCanvas>
+        </Border>
+    </Grid>
+</Window>

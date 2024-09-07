@@ -1,0 +1,99 @@
+@startuml
+
+class BookingSystem {
+    +createBooking()
+    +cancelBooking()
+    +getAvailableWorkspaces()
+    +getAvailableParkingSpaces()
+}
+
+class BookingStatuses {
+    +int BookingStatusID
+    +String StatusName
+    +String Description
+    +boolean IsActive
+}
+
+class Departments {
+    +int DepartmentID
+    +String DepartmentName
+}
+
+class Roles {
+    +int RoleID
+    +String RoleName
+}
+
+class Offices {
+    +int OfficeID
+    +String OfficeName
+    +String Location
+    +int Capacity
+    +String PhoneNumber
+}
+
+class Floors {
+    +int FloorID
+    +String FloorName
+    +int OfficeID
+    +byte[] ImageData
+    +String ImageMimeType
+}
+
+class Users {
+    +int UserID
+    +String Name
+    +String Login
+    +String Email
+    +String PhoneNumber
+    +String PasswordHash
+    +int RoleID
+    +int DepartmentID
+}
+
+class ParkingSpaces {
+    +int ParkingSpaceID
+    +int OfficeID
+    +String Label
+    +String Position
+    +boolean IsAvailable
+}
+
+class UserPasswords {
+    +int UserPasswordID
+    +int UserID
+    +String PasswordHash
+    +String Salt
+}
+
+class Workspaces {
+    +int WorkspaceID
+    +int FloorID
+    +String Label
+    +String Type
+    +boolean IsAvailable
+    +String Position
+}
+
+class Bookings {
+    +int BookingID
+    +int UserID
+    +int WorkspaceID
+    +int ParkingSpaceID
+    +Date BookingDate
+    +Time StartTime
+    +Time EndTime
+    +int BookingStatusID
+}
+
+BookingStatuses "1" -- "0..*" Bookings : has
+Departments "1" -- "0..*" Users : employs
+Roles "1" -- "0..*" Users : assigned
+Offices "1" -- "0..*" Floors : contains
+Offices "1" -- "0..*" ParkingSpaces : has
+Floors "1" -- "0..*" Workspaces : contains
+Users "1" -- "0..*" Bookings : makes
+Workspaces "1" -- "0..*" Bookings : reserved
+ParkingSpaces "1" -- "0..*" Bookings : reserved
+
+@enduml
