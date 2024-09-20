@@ -46,7 +46,7 @@ namespace BookingSystem.Business.Infrastructure
             {
                 UserID = userId,
                 WorkspaceID = workspaceId, // Добавлено свойство WorkspaceID
-                FloorID = floorId,
+                
                 BookingDate = bookingDate, // Замените Date на BookingDate
                 StartDateTime = bookingDate.Date + startTime, // Устанавливаем время начала
                 EndDateTime = bookingDate.Date + endTime, // Устанавливаем время окончания

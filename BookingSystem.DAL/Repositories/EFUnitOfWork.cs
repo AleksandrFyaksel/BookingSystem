@@ -92,5 +92,17 @@ namespace BookingSystem.DAL.Repositories
         {
             context?.Dispose();
         }
+
+        public bool HasChanges()
+        {
+            return context.ChangeTracker.HasChanges();
+        }
+
+        public void Rollback()
+        {
+            // Если вы используете транзакции, здесь можно реализовать откат
+            // Например, если вы используете TransactionScope или DbContext.Database.BeginTransaction()
+            throw new NotImplementedException("Rollback не реализован.");
+        }
     }
 }

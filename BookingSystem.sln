@@ -17,8 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingSystem.Business", "B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{5BFFD4E0-3E0D-4A7B-8F5B-0722E8C10B42}"
 	ProjectSection(SolutionItems) = preProject
-		diagram.puml = diagram.puml
 		diagram.json = diagram.json
+		diagram.puml = diagram.puml
 	EndProjectSection
 EndProject
 Global

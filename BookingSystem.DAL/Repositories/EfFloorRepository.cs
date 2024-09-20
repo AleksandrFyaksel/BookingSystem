@@ -104,5 +104,10 @@ namespace BookingSystem.DAL.Repositories
         public void Add(Floor entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Floor entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public IQueryable<Floor> GetAll(Expression<Func<Floor, bool>> filter, Expression<Func<Floor, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

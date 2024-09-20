@@ -95,5 +95,10 @@ namespace BookingSystem.DAL.Repositories
         public void Add(UserPassword entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(UserPassword entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public IQueryable<UserPassword> GetAll(Expression<Func<UserPassword, bool>> filter, Expression<Func<UserPassword, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

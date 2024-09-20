@@ -101,5 +101,10 @@ namespace BookingSystem.DAL.Repositories
         public void Add(Office entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Office entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public IQueryable<Office> GetAll(Expression<Func<Office, bool>> filter, Expression<Func<Office, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

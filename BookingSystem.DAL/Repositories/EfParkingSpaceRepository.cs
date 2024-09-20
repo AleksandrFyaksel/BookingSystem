@@ -101,5 +101,10 @@ namespace BookingSystem.DAL.Repositories
         public void Add(ParkingSpace entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(ParkingSpace entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public IQueryable<ParkingSpace> GetAll(Expression<Func<ParkingSpace, bool>> filter, Expression<Func<ParkingSpace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

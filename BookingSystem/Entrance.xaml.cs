@@ -1,29 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Text;
 using System.Windows;
 using BookingSystem.DAL.Data;
 using BookingSystem.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
+using BookingSystem.Business.Managers;
 
 namespace BookingSystem
 {
-    public partial class Entrance : Window
-    {
-        private readonly IServiceProvider _serviceProvider;
-
-        public Entrance(IServiceProvider serviceProvider)
+    
+        public partial class Entrance : Window
         {
-            InitializeComponent();
-            _serviceProvider = serviceProvider;
-            Loaded += Entrance_Loaded;
-        }
+            private readonly BookingContext _context;
+            private readonly BookingManager _bookingManager;
+            private readonly IServiceProvider _serviceProvider;
 
-        private void Entrance_Loaded(object sender, RoutedEventArgs e)
+            public Entrance(BookingContext context, BookingManager bookingManager, IServiceProvider serviceProvider)
+            {
+                InitializeComponent();
+                _context = context ?? throw new ArgumentNullException(nameof(context));
+                _bookingManager = bookingManager ?? throw new ArgumentNullException(nameof(bookingManager));
+                _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+            }
+
+            private void Entrance_Loaded(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
@@ -41,33 +43,30 @@ namespace BookingSystem
                 return;
             }
 
-            if (IsLoginValid(login, password))
+            try
             {
-                MessageBox.Show("Вход выполнен успешно!");
-                var bookingWindow = _serviceProvider.GetRequiredService<BookingWindow>();
-                bookingWindow.Show();
-                this.Close();
+                if (IsLoginValid(login, password))
+                {
+                    MessageBox.Show("Вход выполнен успешно!");
+                    var bookingWindow = new BookingWindow(_context, _bookingManager);
+                    bookingWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Неверный логин или пароль.");
+                MessageBox.Show($"Произошла ошибка: {ex.Message}");
             }
         }
 
         private bool IsLoginValid(string login, string password)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<BookingContext>();
-            optionsBuilder.UseSqlServer(((App)Application.Current).Configuration.GetConnectionString("BookingDatabase"));
-
-            using (var context = new BookingContext(optionsBuilder.Options))
-            {
-                var user = context.Users.SingleOrDefault(u => u.Email == login || u.Name == login);
-                if (user != null && user.PasswordHash == HashPassword(password))
-                {
-                    return true;
-                }
-            }
-            return false;
+            var user = _context.Users.SingleOrDefault(u => u.Email == login || u.Name == login);
+            return user != null && user.PasswordHash == HashPassword(password);
         }
 
         private string HashPassword(string password)
@@ -81,71 +80,7 @@ namespace BookingSystem
 
         private void Button_ForgotPassword_Click(object sender, RoutedEventArgs e)
         {
-            // Запрос email у пользователя
-            string email = Microsoft.VisualBasic.Interaction.InputBox("Введите ваш email:", "Сброс пароля", "");
-
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                MessageBox.Show("Пожалуйста, введите email.");
-                return;
-            }
-
-            // Настройка контекста базы данных
-            var optionsBuilder = new DbContextOptionsBuilder<BookingContext>();
-            optionsBuilder.UseSqlServer(((App)Application.Current).Configuration.GetConnectionString("BookingDatabase"));
-
-            using (var context = new BookingContext(optionsBuilder.Options))
-            {
-                // Проверка существования пользователя с таким email
-                var user = context.Users.SingleOrDefault(u => u.Email == email);
-                if (user == null)
-                {
-                    MessageBox.Show("Пользователь с таким email не найден.");
-                    return;
-                }
-
-                // Генерация временного пароля
-                string tempPassword = GenerateTemporaryPassword();
-                user.PasswordHash = HashPassword(tempPassword); // Хешируем временный пароль
-                context.SaveChanges();
-
-                // Отправка email с временным паролем
-                SendPasswordResetEmail(email, tempPassword);
-                MessageBox.Show("На ваш email отправлен временный пароль для сброса.");
-            }
-        }
-
-        private string GenerateTemporaryPassword()
-        {
-            // Генерация временного пароля (например, случайная строка)
-            var random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return new string(Enumerable.Repeat(chars, 8)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
-        private void SendPasswordResetEmail(string email, string tempPassword)
-        {
-            // Настройка SMTP-клиента для отправки email
-            var smtpClient = new SmtpClient("smtp.example.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("your_email@example.com", "your_email_password"),
-                EnableSsl = true,
-            };
-
-            // Создание сообщения
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("your_email@example.com"),
-                Subject = "Сброс пароля",
-                Body = $"Ваш временный пароль: {tempPassword}\nПожалуйста, измените его после входа в систему.",
-                IsBodyHtml = false,
-            };
-            mailMessage.To.Add(email);
-
-            // Отправка email
-            smtpClient.Send(mailMessage);
+            MessageBox.Show("Функция сброса пароля еще не реализована.");
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -155,7 +90,7 @@ namespace BookingSystem
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
-            var registrationWindow = _serviceProvider.GetRequiredService<RegistrationWindow>();
+            var registrationWindow = new RegistrationWindow(_context, _bookingManager, _serviceProvider);
             registrationWindow.Show();
             this.Close();
         }

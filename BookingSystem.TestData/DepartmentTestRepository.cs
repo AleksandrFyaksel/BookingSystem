@@ -22,22 +22,33 @@ namespace BookingSystem.TestData
         {
             if (!departments.Any())
             {
-                departments.Add(new Department { DepartmentID = 1, DepartmentName = "Отдел 1" });
-                departments.Add(new Department { DepartmentID = 2, DepartmentName = "Отдел 2" });
+                departments.AddRange(new List<Department>
+                {
+                    new Department { DepartmentID = 1, DepartmentName = "Отдел 1" },
+                    new Department { DepartmentID = 2, DepartmentName = "Отдел 2" }
+                });
             }
         }
 
         public void Add(Department entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
+            if (departments.Any(d => d.DepartmentID == entity.DepartmentID))
+            {
+                throw new InvalidOperationException("Отдел с таким идентификатором уже существует.");
+            }
             departments.Add(entity);
         }
 
         public async Task AddAsync(Department entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
+            if (departments.Any(d => d.DepartmentID == entity.DepartmentID))
+            {
+                throw new InvalidOperationException("Отдел с таким идентификатором уже существует.");
+            }
             departments.Add(entity);
-            await Task.CompletedTask; // Убираем Task.Run для простоты
+            await Task.CompletedTask; 
         }
 
         public bool Delete(int id)
@@ -52,7 +63,7 @@ namespace BookingSystem.TestData
             var department = Get(id);
             if (department == null) return false;
             departments.Remove(department);
-            return await Task.FromResult(true); // Убираем Task.Run для простоты
+            return await Task.FromResult(true); 
         }
 
         public IQueryable<Department> Find(Expression<Func<Department, bool>> predicate) => departments.AsQueryable().Where(predicate);
@@ -61,7 +72,7 @@ namespace BookingSystem.TestData
 
         public async Task<Department> GetAsync(int id, params string[] includes)
         {
-            return await Task.FromResult(Get(id, includes)); // Убираем Task.Run для простоты
+            return await Task.FromResult(Get(id, includes)); 
         }
 
         public IQueryable<Department> GetAll() => departments.AsQueryable();
@@ -97,12 +108,17 @@ namespace BookingSystem.TestData
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             Update(entity);
-            await Task.CompletedTask; // Убираем Task.Run для простоты
+            await Task.CompletedTask; 
         }
 
         public async Task<IEnumerable<Department>> FindAsync(Expression<Func<Department, bool>> predicate)
         {
             return await Task.FromResult(departments.AsQueryable().Where(predicate).ToList()); // Убираем Task.Run для простоты
+        }
+
+        public IQueryable<Department> GetAll(Expression<Func<Department, bool>> filter, Expression<Func<Department, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
         }
     }
 }

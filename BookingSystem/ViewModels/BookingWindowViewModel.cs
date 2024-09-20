@@ -89,11 +89,11 @@ namespace BookingSystem.ViewModels
             var parkingSpace = new ParkingSpace
             {
                 Label = PromptForLabel(),
-                OfficeID = await GetOfficeIdAsync(SelectedOffice),
+                FloorID = await GetOfficeIdAsync(SelectedOffice),
                 IsAvailable = true
             };
 
-            if (parkingSpace.OfficeID == 0)
+            if (parkingSpace.FloorID == 0)
             {
                 MessageBox.Show("Не удалось получить ID офиса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

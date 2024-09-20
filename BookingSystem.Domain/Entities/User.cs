@@ -28,10 +28,15 @@ namespace BookingSystem.Domain.Entities
         [ForeignKey("Role")]
         public int RoleID { get; set; }  // Идентификатор роли пользователя
 
+        // Добавление свойства DepartmentID
+        [ForeignKey("Department")]
+        public int? DepartmentID { get; set; }  // Идентификатор отдела (может быть null)
+
         // Навигационные свойства
         public virtual Role Role { get; set; }  // Связь с ролью
+        public virtual Department Department { get; set; }  // Связь с отделом
         public virtual ICollection<Booking> Bookings { get; set; }  // Связь с бронированиями
-        public virtual ICollection<UserPassword> UserPasswords { get; set; }  // Связь с паролями пользователя
+        public virtual ICollection<UserPassword> UserPasswords { get; set; }  // Связь с паролями пользователей
 
         // Конструктор для инициализации коллекций
         public User()

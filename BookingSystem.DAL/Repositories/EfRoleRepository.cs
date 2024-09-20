@@ -101,5 +101,10 @@ namespace BookingSystem.DAL.Repositories
         public void Add(Role entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Role entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public IQueryable<Role> GetAll(Expression<Func<Role, bool>> filter, Expression<Func<Role, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

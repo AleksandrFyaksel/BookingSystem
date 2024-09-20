@@ -90,7 +90,7 @@ namespace BookingSystem
                 UserID = UserID,
                 WorkspaceID = WorkspaceID,
                 ParkingSpaceID = ParkingSpaceID,
-                FloorID = FloorID,
+             
                 BookingStatusID = BookingStatusID,
                 BookingDate = selectedDate.Value,
                 StartDateTime = selectedDate.Value.Add(startTimeSpan),

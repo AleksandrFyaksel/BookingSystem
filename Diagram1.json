@@ -1,0 +1,2803 @@
+﻿{
+  "Version": 2,
+  "Properties": {
+    "AreNodeDescriptionsVisible": "False"
+  },
+  "Nodes": [
+    {
+      "Id": "1",
+      "Name": "BookingSystem.Domain.Entities",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T06:45:18.9896650Z",
+      "AbsoluteTopLeft": "-188.8029,-71.2389",
+      "HeaderContentSize": "1010.586,27",
+      "PreferredHeaderSize": "262.23,27",
+      "Tooltip": "namespace BookingSystem.Domain.Entities\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "1010.586,278",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "1008.586,250",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Entities",
+        "FullyQualifiedName": "BookingSystem.Domain.Entities",
+        "FullName": "namespace BookingSystem.Domain.Entities",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 3
+      }
+    },
+    {
+      "Id": "2",
+      "ParentId": "1",
+      "Name": "BookingStatus",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:19.3021046Z",
+      "AbsoluteTopLeft": "323.8177,55.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "92.94,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.BookingStatus\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingStatus",
+        "FullName": "class BookingSystem.Domain.Entities.BookingStatus",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "3",
+      "ParentId": "1",
+      "Name": "Booking",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:25.2105380Z",
+      "AbsoluteTopLeft": "328.7285,-24.2389",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "58.1767,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.Booking\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Booking",
+        "FullName": "class BookingSystem.Domain.Entities.Booking",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "6",
+      "ParentId": "1",
+      "Name": "Department",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:34.6794520Z",
+      "AbsoluteTopLeft": "501.9504,135.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "79.3267,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.Department\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Department",
+        "FullName": "class BookingSystem.Domain.Entities.Department",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "7",
+      "ParentId": "1",
+      "Name": "Floor",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:39.2296781Z",
+      "AbsoluteTopLeft": "-161.3342,55.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "57,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.Floor\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Floor",
+        "FullName": "class BookingSystem.Domain.Entities.Floor",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "8",
+      "ParentId": "1",
+      "Name": "Office",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:44.2197166Z",
+      "AbsoluteTopLeft": "-159.2258,-24.2389",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "57,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.Office\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Office",
+        "FullName": "class BookingSystem.Domain.Entities.Office",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "9",
+      "ParentId": "1",
+      "Name": "ParkingSpace",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:49.0338924Z",
+      "AbsoluteTopLeft": "105.0315,-24.2389",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "86.8767,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.ParkingSpace\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ParkingSpace",
+        "FullName": "class BookingSystem.Domain.Entities.ParkingSpace",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "10",
+      "ParentId": "1",
+      "Name": "Role",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:53.7060609Z",
+      "AbsoluteTopLeft": "700.7831,-24.2389",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "57,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.Role\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Role",
+        "FullName": "class BookingSystem.Domain.Entities.Role",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "11",
+      "ParentId": "1",
+      "Name": "User",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:45:58.2311749Z",
+      "AbsoluteTopLeft": "500.996,55.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "57,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.User\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "User",
+        "FullName": "class BookingSystem.Domain.Entities.User",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "12",
+      "ParentId": "1",
+      "Name": "UserPassword",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:46:01.9549922Z",
+      "AbsoluteTopLeft": "504.3077,-24.2389",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "89.3233,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.UserPassword\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "UserPassword",
+        "FullName": "class BookingSystem.Domain.Entities.UserPassword",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "13",
+      "ParentId": "1",
+      "Name": "Workspace",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T06:46:06.1451565Z",
+      "AbsoluteTopLeft": "99.1699,55.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "72.8733,39.4",
+      "Tooltip": "class BookingSystem.Domain.Entities.Workspace\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Workspace",
+        "FullName": "class BookingSystem.Domain.Entities.Workspace",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "14",
+      "Name": "BookingSystem.TestData",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:13:25.2266748Z",
+      "AbsoluteTopLeft": "-217.0572,296.7611",
+      "HeaderContentSize": "1147.7637,27",
+      "PreferredHeaderSize": "225.1167,27",
+      "Tooltip": "namespace BookingSystem.TestData\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "1147.7637,278",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "1145.7637,250",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "TestData",
+        "FullyQualifiedName": "BookingSystem.TestData",
+        "FullName": "namespace BookingSystem.TestData",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 2
+      }
+    },
+    {
+      "Id": "15",
+      "ParentId": "14",
+      "Name": "BookingStatusTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:13:25.2396749Z",
+      "AbsoluteTopLeft": "-27.3541,503.7611",
+      "HeaderContentSize": "176.5067,50",
+      "PreferredHeaderSize": "176.5067,39.4",
+      "Tooltip": "class BookingSystem.TestData.BookingStatusTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "176.5067,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingStatusTestRepository",
+        "FullName": "class BookingSystem.TestData.BookingStatusTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingStatusTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "16",
+      "ParentId": "14",
+      "Name": "BookingTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:13:52.7081656Z",
+      "AbsoluteTopLeft": "-92.1325,343.7611",
+      "HeaderContentSize": "141.7433,50",
+      "PreferredHeaderSize": "141.7433,39.4",
+      "Tooltip": "class BookingSystem.TestData.BookingTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "141.7433,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingTestRepository",
+        "FullName": "class BookingSystem.TestData.BookingTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "17",
+      "ParentId": "14",
+      "Name": "DepartmentTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:13:56.6458271Z",
+      "AbsoluteTopLeft": "706.2492,343.7611",
+      "HeaderContentSize": "162.8933,50",
+      "PreferredHeaderSize": "162.8933,39.4",
+      "Tooltip": "class BookingSystem.TestData.DepartmentTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "162.8933,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "DepartmentTestRepository",
+        "FullName": "class BookingSystem.TestData.DepartmentTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"DepartmentTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "18",
+      "ParentId": "14",
+      "Name": "FloorTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:13:58.7353331Z",
+      "AbsoluteTopLeft": "-37.5272,423.7611",
+      "HeaderContentSize": "123.6667,50",
+      "PreferredHeaderSize": "123.6667,39.4",
+      "Tooltip": "class BookingSystem.TestData.FloorTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "123.6667,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "FloorTestRepository",
+        "FullName": "class BookingSystem.TestData.FloorTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"FloorTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "19",
+      "ParentId": "14",
+      "Name": "OfficeTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:00.9788189Z",
+      "AbsoluteTopLeft": "-196.0572,423.7611",
+      "HeaderContentSize": "128.53,50",
+      "PreferredHeaderSize": "128.53,39.4",
+      "Tooltip": "class BookingSystem.TestData.OfficeTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "128.53,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "OfficeTestRepository",
+        "FullName": "class BookingSystem.TestData.OfficeTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"OfficeTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "20",
+      "ParentId": "14",
+      "Name": "ParkingSpaceTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:02.8925655Z",
+      "AbsoluteTopLeft": "80.5689,343.7611",
+      "HeaderContentSize": "170.4433,50",
+      "PreferredHeaderSize": "170.4433,39.4",
+      "Tooltip": "class BookingSystem.TestData.ParkingSpaceTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "170.4433,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ParkingSpaceTestRepository",
+        "FullName": "class BookingSystem.TestData.ParkingSpaceTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ParkingSpaceTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "21",
+      "ParentId": "14",
+      "Name": "RoleTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:05.8105772Z",
+      "AbsoluteTopLeft": "790.3631,423.7611",
+      "HeaderContentSize": "119.3433,50",
+      "PreferredHeaderSize": "119.3433,39.4",
+      "Tooltip": "class BookingSystem.TestData.RoleTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "119.3433,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "RoleTestRepository",
+        "FullName": "class BookingSystem.TestData.RoleTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"RoleTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "22",
+      "ParentId": "14",
+      "Name": "TestUnitOfWork",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:08.7510170Z",
+      "AbsoluteTopLeft": "281.0122,343.7611",
+      "HeaderContentSize": "101.6733,50",
+      "PreferredHeaderSize": "101.6733,39.4",
+      "Tooltip": "class BookingSystem.TestData.TestUnitOfWork\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "101.6733,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "TestUnitOfWork",
+        "FullName": "class BookingSystem.TestData.TestUnitOfWork",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "IsDisposable": true
+      }
+    },
+    {
+      "Id": "23",
+      "ParentId": "14",
+      "Name": "UserPasswordTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:11.8635544Z",
+      "AbsoluteTopLeft": "587.4731,423.7611",
+      "HeaderContentSize": "172.89,50",
+      "PreferredHeaderSize": "172.89,39.4",
+      "Tooltip": "class BookingSystem.TestData.UserPasswordTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "172.89,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "UserPasswordTestRepository",
+        "FullName": "class BookingSystem.TestData.UserPasswordTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"UserPasswordTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "24",
+      "ParentId": "14",
+      "Name": "UserTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:14.4711423Z",
+      "AbsoluteTopLeft": "511.9043,503.7611",
+      "HeaderContentSize": "119.7933,50",
+      "PreferredHeaderSize": "119.7933,39.4",
+      "Tooltip": "class BookingSystem.TestData.UserTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "119.7933,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "UserTestRepository",
+        "FullName": "class BookingSystem.TestData.UserTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"UserTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "25",
+      "ParentId": "14",
+      "Name": "WorkspaceTestRepository",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:17.1775173Z",
+      "AbsoluteTopLeft": "179.1526,423.7611",
+      "HeaderContentSize": "156.44,50",
+      "PreferredHeaderSize": "156.44,39.4",
+      "Tooltip": "class BookingSystem.TestData.WorkspaceTestRepository\r\nassembly: BookingSystem.TestData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "156.44,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "WorkspaceTestRepository",
+        "FullName": "class BookingSystem.TestData.WorkspaceTestRepository",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"WorkspaceTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "26",
+      "Name": "BookingSystem.Data",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:14:23.7953041Z",
+      "AbsoluteTopLeft": "416.9684,-579.2982",
+      "HeaderContentSize": "204.5633,27",
+      "PreferredHeaderSize": "204.5633,27",
+      "Tooltip": "namespace BookingSystem.Data\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "204.5633,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "202.5633,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Data",
+        "FullyQualifiedName": "BookingSystem.Data",
+        "FullName": "namespace BookingSystem.Data",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 2
+      }
+    },
+    {
+      "Id": "27",
+      "ParentId": "26",
+      "Name": "BookingDbContext",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:14:23.7962633Z",
+      "AbsoluteTopLeft": "437.9684,-532.2982",
+      "HeaderContentSize": "118.96,50",
+      "PreferredHeaderSize": "118.96,39.4",
+      "Tooltip": "class BookingSystem.Data.BookingDbContext\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "118.96,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingDbContext",
+        "FullName": "class BookingSystem.Data.BookingDbContext",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "IsDisposable": true
+      }
+    },
+    {
+      "Id": "28",
+      "Name": "BookingSystem.Domain.Interfaces",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:14:52.2567055Z",
+      "AbsoluteTopLeft": "232.4569,664.7611",
+      "HeaderContentSize": "325.6344,27",
+      "PreferredHeaderSize": "275.33,27",
+      "Tooltip": "namespace BookingSystem.Domain.Interfaces\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "325.6344,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "323.6344,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Interfaces",
+        "FullyQualifiedName": "BookingSystem.Domain.Interfaces",
+        "FullName": "namespace BookingSystem.Domain.Interfaces",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Interfaces\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 3
+      }
+    },
+    {
+      "Id": "29",
+      "ParentId": "28",
+      "Name": "IRepository<T>",
+      "Stereotype": "Interface",
+      "CreatedAtUtc": "2024-09-08T07:14:52.2637066Z",
+      "AbsoluteTopLeft": "253.4569,711.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "98.5133,39.4",
+      "Tooltip": "interface BookingSystem.Domain.Interfaces.IRepository<T>\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "IRepository",
+        "FullName": "interface BookingSystem.Domain.Interfaces.IRepository<T>",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"IRepository\",\"A\":1,\"C\":{\"K\":\"Namespace\",\"N\":\"Interfaces\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "IsAbstract": true,
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "30",
+      "ParentId": "28",
+      "Name": "IUnitOfWork",
+      "Stereotype": "Interface",
+      "CreatedAtUtc": "2024-09-08T07:14:55.9515401Z",
+      "AbsoluteTopLeft": "437.0913,711.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "83.1133,43.4",
+      "Tooltip": "interface BookingSystem.Domain.Interfaces.IUnitOfWork\r\nassembly: BookingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "IUnitOfWork",
+        "FullName": "interface BookingSystem.Domain.Interfaces.IUnitOfWork",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"IUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"Interfaces\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Description": "Интерфейс для единицы работы, обеспечивающий доступ к репозиториям.",
+        "IsAbstract": true,
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "IsDisposable": true
+      }
+    },
+    {
+      "Id": "31",
+      "Name": "BookingSystem.DAL.Data",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:15:17.0334757Z",
+      "AbsoluteTopLeft": "-56.0606,-575.6857",
+      "HeaderContentSize": "228.6733,27",
+      "PreferredHeaderSize": "228.6733,27",
+      "Tooltip": "namespace BookingSystem.DAL.Data\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "228.6733,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "226.6733,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Data",
+        "FullyQualifiedName": "BookingSystem.DAL.Data",
+        "FullName": "namespace BookingSystem.DAL.Data",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 3
+      }
+    },
+    {
+      "Id": "32",
+      "ParentId": "31",
+      "Name": "BookingContext",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:15:17.0344765Z",
+      "AbsoluteTopLeft": "48.9123,-528.6857",
+      "HeaderContentSize": "102.6733,50",
+      "PreferredHeaderSize": "102.6733,39.4",
+      "Tooltip": "class BookingSystem.DAL.Data.BookingContext\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "102.6733,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingContext",
+        "FullName": "class BookingSystem.DAL.Data.BookingContext",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "IsDisposable": true
+      }
+    },
+    {
+      "Id": "33",
+      "Name": "BookingSystem.DAL.Migrations",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:15:24.8217989Z",
+      "AbsoluteTopLeft": "1064.5313,-30.4874",
+      "HeaderContentSize": "272,27",
+      "PreferredHeaderSize": "260.8967,27",
+      "Tooltip": "namespace BookingSystem.DAL.Migrations\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "272,278",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "270,250",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Migrations",
+        "FullyQualifiedName": "BookingSystem.DAL.Migrations",
+        "FullName": "namespace BookingSystem.DAL.Migrations",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Migrations\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 3
+      }
+    },
+    {
+      "Id": "34",
+      "ParentId": "33",
+      "Name": "InitialCreate",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:15:24.8237985Z",
+      "AbsoluteTopLeft": "1215.5313,176.5126",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "79.7033,39.4",
+      "Tooltip": "class BookingSystem.DAL.Migrations.InitialCreate\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "InitialCreate",
+        "FullName": "class BookingSystem.DAL.Migrations.InitialCreate",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"InitialCreate\",\"C\":{\"K\":\"Namespace\",\"N\":\"Migrations\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "35",
+      "ParentId": "33",
+      "Name": "Migration2",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:15:29.0205454Z",
+      "AbsoluteTopLeft": "1085.5313,176.5126",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "74.1367,39.4",
+      "Tooltip": "class BookingSystem.DAL.Migrations.Migration2\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Migration2",
+        "FullName": "class BookingSystem.DAL.Migrations.Migration2",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Migration2\",\"C\":{\"K\":\"Namespace\",\"N\":\"Migrations\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "36",
+      "ParentId": "33",
+      "Name": "Migration3",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:15:31.6399637Z",
+      "AbsoluteTopLeft": "1186.3822,16.5126",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "74.1367,39.4",
+      "Tooltip": "class BookingSystem.DAL.Migrations.Migration3\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Migration3",
+        "FullName": "class BookingSystem.DAL.Migrations.Migration3",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Migration3\",\"C\":{\"K\":\"Namespace\",\"N\":\"Migrations\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "37",
+      "ParentId": "33",
+      "Name": "BookingContextModelSnapshot",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:15:34.9070399Z",
+      "AbsoluteTopLeft": "1116.9247,96.5126",
+      "HeaderContentSize": "191.22,50",
+      "PreferredHeaderSize": "191.22,43.4",
+      "Tooltip": "class BookingSystem.DAL.Migrations.BookingContextModelSnapshot\r\nassembly: BookingSystem.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "191.22,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingContextModelSnapshot",
+        "FullName": "class BookingSystem.DAL.Migrations.BookingContextModelSnapshot",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingContextModelSnapshot\",\"C\":{\"K\":\"Namespace\",\"N\":\"Migrations\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Internal",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "38",
+      "Name": "BookingSystem.Controls",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:15:59.1376390Z",
+      "AbsoluteTopLeft": "1464.2947,44.2121",
+      "HeaderContentSize": "224.39,27",
+      "PreferredHeaderSize": "224.39,27",
+      "Tooltip": "namespace BookingSystem.Controls\r\nassembly: BookingSystem.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "224.39,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "222.39,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Controls",
+        "FullyQualifiedName": "BookingSystem.Controls",
+        "FullName": "namespace BookingSystem.Controls",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Controls\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Controls\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 2
+      }
+    },
+    {
+      "Id": "39",
+      "ParentId": "38",
+      "Name": "BookingSystemCanvas",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:15:59.1405952Z",
+      "AbsoluteTopLeft": "1529.9714,91.2121",
+      "HeaderContentSize": "137.7133,50",
+      "PreferredHeaderSize": "137.7133,39.4",
+      "Tooltip": "class BookingSystem.Controls.BookingSystemCanvas\r\nassembly: BookingSystem.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "137.7133,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingSystemCanvas",
+        "FullName": "class BookingSystem.Controls.BookingSystemCanvas",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingSystemCanvas\",\"C\":{\"K\":\"Namespace\",\"N\":\"Controls\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Controls\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "40",
+      "Name": "BookingSystem.Business.Infrastructure",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:16:16.6403251Z",
+      "AbsoluteTopLeft": "85.5703,872.7611",
+      "HeaderContentSize": "478.4212,27",
+      "PreferredHeaderSize": "298.3867,27",
+      "Tooltip": "namespace BookingSystem.Business.Infrastructure\r\nassembly: BookingSystem.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "478.4212,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "476.4212,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Infrastructure",
+        "FullyQualifiedName": "BookingSystem.Business.Infrastructure",
+        "FullName": "namespace BookingSystem.Business.Infrastructure",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"Business\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Business\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 3
+      }
+    },
+    {
+      "Id": "41",
+      "ParentId": "40",
+      "Name": "DbTestData",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:16:16.6432888Z",
+      "AbsoluteTopLeft": "147.3947,919.7611",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "76.1133,39.4",
+      "Tooltip": "class BookingSystem.Business.Infrastructure.DbTestData\r\nassembly: BookingSystem.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "DbTestData",
+        "FullName": "class BookingSystem.Business.Infrastructure.DbTestData",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"DbTestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"Business\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Business\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "IsStatic": true,
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "42",
+      "ParentId": "40",
+      "Name": "ManagersFactory",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:16:20.5364120Z",
+      "AbsoluteTopLeft": "430.9303,919.7611",
+      "HeaderContentSize": "108.48,50",
+      "PreferredHeaderSize": "108.48,39.4",
+      "Tooltip": "class BookingSystem.Business.Infrastructure.ManagersFactory\r\nassembly: BookingSystem.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "108.48,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ManagersFactory",
+        "FullName": "class BookingSystem.Business.Infrastructure.ManagersFactory",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ManagersFactory\",\"C\":{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"Business\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Business\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "IsDisposable": true
+      }
+    },
+    {
+      "Id": "51",
+      "Name": "BookingSystem",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:18:03.3952902Z",
+      "AbsoluteTopLeft": "916.4718,-486.9033",
+      "HeaderContentSize": "1769.6705,27",
+      "PreferredHeaderSize": "177.27,27",
+      "Tooltip": "namespace BookingSystem\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "1769.6705,359.9127",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "1767.6705,331.9127",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "BookingSystem",
+        "FullyQualifiedName": "BookingSystem",
+        "FullName": "namespace BookingSystem",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 1
+      }
+    },
+    {
+      "Id": "43",
+      "ParentId": "51",
+      "Name": "Commands",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:17:03.8690379Z",
+      "AbsoluteTopLeft": "1346.1639,-353.4761",
+      "HeaderContentSize": "240.06,27",
+      "PreferredHeaderSize": "156.19,27",
+      "Tooltip": "namespace BookingSystem.Commands\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "240.06,198",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "238.06,170",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Commands",
+        "FullyQualifiedName": "BookingSystem.Commands",
+        "FullName": "namespace BookingSystem.Commands",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Commands\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 2
+      }
+    },
+    {
+      "Id": "44",
+      "ParentId": "43",
+      "Name": "AsyncRelayCommand",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:17:03.8710541Z",
+      "AbsoluteTopLeft": "1367.1639,-306.4761",
+      "HeaderContentSize": "132.5033,50",
+      "PreferredHeaderSize": "132.5033,39.4",
+      "Tooltip": "class BookingSystem.Commands.AsyncRelayCommand\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "132.5033,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "AsyncRelayCommand",
+        "FullName": "class BookingSystem.Commands.AsyncRelayCommand",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"AsyncRelayCommand\",\"C\":{\"K\":\"Namespace\",\"N\":\"Commands\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "45",
+      "ParentId": "43",
+      "Name": "RelayCommand<T>",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:17:07.4145908Z",
+      "AbsoluteTopLeft": "1367.1639,-226.4761",
+      "HeaderContentSize": "123.3067,50",
+      "PreferredHeaderSize": "123.3067,39.4",
+      "Tooltip": "class BookingSystem.Commands.RelayCommand<T>\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "123.3067,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "RelayCommand",
+        "FullName": "class BookingSystem.Commands.RelayCommand<T>",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"RelayCommand\",\"A\":1,\"C\":{\"K\":\"Namespace\",\"N\":\"Commands\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "46",
+      "ParentId": "51",
+      "Name": "Infrastructure",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:17:25.1883287Z",
+      "AbsoluteTopLeft": "937.4718,-273.4761",
+      "HeaderContentSize": "250.843,27",
+      "PreferredHeaderSize": "166.9933,27",
+      "Tooltip": "namespace BookingSystem.Infrastructure\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "250.843,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "248.843,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Infrastructure",
+        "FullyQualifiedName": "BookingSystem.Infrastructure",
+        "FullName": "namespace BookingSystem.Infrastructure",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 2
+      }
+    },
+    {
+      "Id": "47",
+      "ParentId": "46",
+      "Name": "ImageSourceConverter",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:17:25.1913292Z",
+      "AbsoluteTopLeft": "1026.8548,-226.4761",
+      "HeaderContentSize": "140.46,50",
+      "PreferredHeaderSize": "140.46,43.4",
+      "Tooltip": "class BookingSystem.Infrastructure.ImageSourceConverter\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "140.46,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ImageSourceConverter",
+        "FullName": "class BookingSystem.Infrastructure.ImageSourceConverter",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ImageSourceConverter\",\"C\":{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Description": "Конвертер для преобразования строкового пути к изображению в объект BitmapImage.",
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "48",
+      "ParentId": "51",
+      "Name": "ViewModels",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:17:42.4700503Z",
+      "AbsoluteTopLeft": "1764.8325,-439.9011",
+      "HeaderContentSize": "249.2932,27",
+      "PreferredHeaderSize": "160.46,27",
+      "Tooltip": "namespace BookingSystem.ViewModels\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "249.2932,284.4217",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "247.2932,256.4217",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "ViewModels",
+        "FullyQualifiedName": "BookingSystem.ViewModels",
+        "FullName": "namespace BookingSystem.ViewModels",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 2
+      }
+    },
+    {
+      "Id": "49",
+      "ParentId": "48",
+      "Name": "BookingWindowViewModel",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:17:42.4710650Z",
+      "AbsoluteTopLeft": "1819.2892,-237.5223",
+      "HeaderContentSize": "168.8733,50",
+      "PreferredHeaderSize": "168.8733,39.4",
+      "Tooltip": "class BookingSystem.ViewModels.BookingWindowViewModel\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "168.8733,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingWindowViewModel",
+        "FullName": "class BookingSystem.ViewModels.BookingWindowViewModel",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "50",
+      "ParentId": "48",
+      "Name": "ViewModelBase",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:17:49.5532222Z",
+      "AbsoluteTopLeft": "1853.5196,-367.5222",
+      "HeaderContentSize": "100.5533,50",
+      "PreferredHeaderSize": "100.5533,43.4",
+      "Tooltip": "class BookingSystem.ViewModels.ViewModelBase\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100.5533,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ViewModelBase",
+        "FullName": "class BookingSystem.ViewModels.ViewModelBase",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ViewModelBase\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Description": "Базовый класс для ViewModel, реализующий INotifyPropertyChanged.",
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "52",
+      "ParentId": "51",
+      "Name": "App",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:18:03.3974564Z",
+      "AbsoluteTopLeft": "2554.8658,-439.9004",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "57,43.4",
+      "Tooltip": "class BookingSystem.App\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "App",
+        "FullName": "class BookingSystem.App",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"App\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Description": "App",
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "53",
+      "ParentId": "51",
+      "Name": "BookingForm",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:18:42.9292591Z",
+      "AbsoluteTopLeft": "2564.5792,-359.9004",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "87.5567,43.4",
+      "Tooltip": "class BookingSystem.BookingForm\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "BookingForm",
+        "FullName": "class BookingSystem.BookingForm",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"BookingForm\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Description": "BookingForm",
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "54",
+      "ParentId": "51",
+      "Name": "BookingSystem.DAL.Data",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:19:04.0857113Z",
+      "AbsoluteTopLeft": "2276.4423,-273.4761",
+      "HeaderContentSize": "228.6733,27",
+      "PreferredHeaderSize": "228.6733,27",
+      "Tooltip": "namespace BookingSystem.DAL.Data\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "228.6733,118",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "226.6733,90",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Data",
+        "FullyQualifiedName": "BookingSystem.DAL.Data",
+        "FullName": "namespace BookingSystem.DAL.Data",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 3
+      }
+    },
+    {
+      "Id": "55",
+      "ParentId": "54",
+      "Name": "DesignTimeDbContextFactory",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:19:04.1087060Z",
+      "AbsoluteTopLeft": "2303.9123,-226.4761",
+      "HeaderContentSize": "180.2033,50",
+      "PreferredHeaderSize": "180.2033,39.4",
+      "Tooltip": "class BookingSystem.DAL.Data.DesignTimeDbContextFactory\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "180.2033,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "DesignTimeDbContextFactory",
+        "FullName": "class BookingSystem.DAL.Data.DesignTimeDbContextFactory",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"DesignTimeDbContextFactory\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "60",
+      "ParentId": "51",
+      "Name": "Startup",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:19:41.0495195Z",
+      "AbsoluteTopLeft": "2565.1156,-197.9906",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "60,43.4",
+      "Tooltip": "class BookingSystem.Startup\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "Startup",
+        "FullName": "class BookingSystem.Startup",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"Startup\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Internal",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "56",
+      "Name": "Drawing",
+      "Stereotype": "Namespace",
+      "CreatedAtUtc": "2024-09-08T07:19:08.4319680Z",
+      "AbsoluteTopLeft": "1066.95,337.5126",
+      "HeaderContentSize": "715.2153,27",
+      "PreferredHeaderSize": "140.13,27",
+      "Tooltip": "namespace Drawing\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "715.2153,205.7801",
+      "ChildrenAreaTopLeft": "1,27",
+      "ChildrenAreaSize": "713.2153,177.7801",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynNamespace",
+        "SymbolName": "Drawing",
+        "FullyQualifiedName": "Drawing",
+        "FullName": "namespace Drawing",
+        "Symbols": [
+          "{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode",
+        "NamespaceLevel": 1
+      }
+    },
+    {
+      "Id": "57",
+      "ParentId": "56",
+      "Name": "DrawingCanvas",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:19:08.4339672Z",
+      "AbsoluteTopLeft": "1087.95,384.5126",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "98.0133,39.4",
+      "Tooltip": "class Drawing.DrawingCanvas\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "DrawingCanvas",
+        "FullName": "class Drawing.DrawingCanvas",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"DrawingCanvas\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "58",
+      "ParentId": "56",
+      "Name": "ShapeType",
+      "Stereotype": "Enum",
+      "CreatedAtUtc": "2024-09-08T07:19:31.5906361Z",
+      "AbsoluteTopLeft": "1355.6558,472.2927",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "72.2233,43.4",
+      "Tooltip": "enum Drawing.ShapeType\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ShapeType",
+        "FullName": "enum Drawing.ShapeType",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ShapeType\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Description": "Типы фигур, которые могут быть нарисованы.",
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    },
+    {
+      "Id": "59",
+      "ParentId": "56",
+      "Name": "ShapeVisual",
+      "Stereotype": "Class",
+      "CreatedAtUtc": "2024-09-08T07:19:31.5936448Z",
+      "AbsoluteTopLeft": "1661.1653,466.4072",
+      "HeaderContentSize": "100,50",
+      "PreferredHeaderSize": "79.16,43.4",
+      "Tooltip": "class Drawing.ShapeVisual\r\nassembly: BookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "NodeTotalSize": "100,50",
+      "IsPinned": true,
+      "Payload": {
+        "Discriminator": "RoslynType",
+        "SymbolName": "ShapeVisual",
+        "FullName": "class Drawing.ShapeVisual",
+        "Symbols": [
+          "{\"K\":\"NamedType\",\"N\":\"ShapeVisual\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}"
+        ],
+        "Description": "Представляет визуальное представление фигуры.",
+        "Accessibility": "Public",
+        "Origin": "SourceCode"
+      }
+    }
+  ],
+  "Connectors": [
+    {
+      "Id": "1",
+      "SourceNodeId": "2",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public virtual ICollection<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "2",
+      "SourceNodeId": "3",
+      "TargetNodeId": "2",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "BookingStatus",
+              "Tooltip": "public virtual BookingStatus BookingStatus { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "5",
+      "SourceNodeId": "3",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Floor",
+              "Tooltip": "public virtual Floor Floor { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Floor\",\"C\":{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "7",
+      "SourceNodeId": "7",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public virtual ICollection<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "9",
+      "SourceNodeId": "7",
+      "TargetNodeId": "8",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Office",
+              "Tooltip": "public virtual Office Office { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Office\",\"C\":{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "10",
+      "SourceNodeId": "8",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public virtual ICollection<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "11",
+      "SourceNodeId": "8",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Floors",
+              "Tooltip": "public virtual ICollection<Floor> Floors { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Floors\",\"C\":{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "12",
+      "SourceNodeId": "3",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "ParkingSpace",
+              "Tooltip": "public virtual ParkingSpace ParkingSpace { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "14",
+      "SourceNodeId": "8",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "ParkingSpaces",
+              "Tooltip": "public virtual ICollection<ParkingSpace> ParkingSpaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"ParkingSpaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "15",
+      "SourceNodeId": "9",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public virtual ICollection<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "16",
+      "SourceNodeId": "9",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Floor",
+              "Tooltip": "public virtual Floor Floor { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Floor\",\"C\":{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "17",
+      "SourceNodeId": "9",
+      "TargetNodeId": "8",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Office",
+              "Tooltip": "public virtual Office Office { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Office\",\"C\":{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "19",
+      "SourceNodeId": "3",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "User",
+              "Tooltip": "public virtual User User { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"User\",\"C\":{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "21",
+      "SourceNodeId": "6",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Users",
+              "Tooltip": "public virtual ICollection<User> Users { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Users\",\"C\":{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "22",
+      "SourceNodeId": "10",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Users",
+              "Tooltip": "public virtual ICollection<User> Users { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Users\",\"C\":{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "23",
+      "SourceNodeId": "11",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public virtual ICollection<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "24",
+      "SourceNodeId": "11",
+      "TargetNodeId": "10",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Role",
+              "Tooltip": "public virtual Role Role { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Role\",\"C\":{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "26",
+      "SourceNodeId": "11",
+      "TargetNodeId": "12",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "UserPasswords",
+              "Tooltip": "public virtual ICollection<UserPassword> UserPasswords { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"UserPasswords\",\"C\":{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "27",
+      "SourceNodeId": "12",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "User",
+              "Tooltip": "public virtual User User { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"User\",\"C\":{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "28",
+      "SourceNodeId": "3",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Workspace",
+              "Tooltip": "public virtual Workspace Workspace { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Workspace\",\"C\":{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "30",
+      "SourceNodeId": "7",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Workspaces",
+              "Tooltip": "public virtual ICollection<Workspace> Workspaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "31",
+      "SourceNodeId": "8",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Workspaces",
+              "Tooltip": "public virtual ICollection<Workspace> Workspaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "32",
+      "SourceNodeId": "13",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public virtual ICollection<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "33",
+      "SourceNodeId": "13",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Floor",
+              "Tooltip": "public virtual Floor Floor { get; set; }",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Floor\",\"C\":{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "34",
+      "SourceNodeId": "15",
+      "TargetNodeId": "2",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingStatusTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "bookingStatuses",
+              "Tooltip": "private readonly List<BookingStatus> bookingStatuses"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"bookingStatuses\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingStatusTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "35",
+      "SourceNodeId": "16",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "bookings",
+              "Tooltip": "private readonly List<Booking> bookings"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "36",
+      "SourceNodeId": "17",
+      "TargetNodeId": "6",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"DepartmentTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "departments",
+              "Tooltip": "private readonly List<Department> departments"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"departments\",\"C\":{\"K\":\"NamedType\",\"N\":\"DepartmentTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "37",
+      "SourceNodeId": "18",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"FloorTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "floors",
+              "Tooltip": "private readonly List<Floor> floors"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"floors\",\"C\":{\"K\":\"NamedType\",\"N\":\"FloorTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "38",
+      "SourceNodeId": "19",
+      "TargetNodeId": "8",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"OfficeTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "offices",
+              "Tooltip": "private readonly List<Office> offices"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"offices\",\"C\":{\"K\":\"NamedType\",\"N\":\"OfficeTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "39",
+      "SourceNodeId": "20",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"ParkingSpaceTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "parkingSpaces",
+              "Tooltip": "private readonly List<ParkingSpace> parkingSpaces"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"parkingSpaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"ParkingSpaceTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "40",
+      "SourceNodeId": "21",
+      "TargetNodeId": "10",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"RoleTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "roles",
+              "Tooltip": "private readonly List<Role> roles"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"roles\",\"C\":{\"K\":\"NamedType\",\"N\":\"RoleTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "41",
+      "SourceNodeId": "22",
+      "TargetNodeId": "2",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "bookingStatuses",
+              "Tooltip": "private readonly List<BookingStatus> bookingStatuses"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"bookingStatuses\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "42",
+      "SourceNodeId": "22",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "bookings",
+              "Tooltip": "private readonly List<Booking> bookings"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "43",
+      "SourceNodeId": "22",
+      "TargetNodeId": "6",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "departments",
+              "Tooltip": "private readonly List<Department> departments"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"departments\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "44",
+      "SourceNodeId": "22",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "floors",
+              "Tooltip": "private readonly List<Floor> floors"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"floors\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "45",
+      "SourceNodeId": "22",
+      "TargetNodeId": "8",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "offices",
+              "Tooltip": "private readonly List<Office> offices"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"offices\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "46",
+      "SourceNodeId": "22",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "parkingSpaces",
+              "Tooltip": "private readonly List<ParkingSpace> parkingSpaces"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"parkingSpaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "47",
+      "SourceNodeId": "22",
+      "TargetNodeId": "10",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "roles",
+              "Tooltip": "private readonly List<Role> roles"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"roles\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "48",
+      "SourceNodeId": "22",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "users",
+              "Tooltip": "private readonly List<User> users"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"users\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "49",
+      "SourceNodeId": "22",
+      "TargetNodeId": "12",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "userPasswords",
+              "Tooltip": "private readonly List<UserPassword> userPasswords"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"userPasswords\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "50",
+      "SourceNodeId": "22",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "workspaces",
+              "Tooltip": "private readonly List<Workspace> workspaces"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "51",
+      "SourceNodeId": "23",
+      "TargetNodeId": "12",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"UserPasswordTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "userPasswords",
+              "Tooltip": "private readonly List<UserPassword> userPasswords"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"userPasswords\",\"C\":{\"K\":\"NamedType\",\"N\":\"UserPasswordTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "52",
+      "SourceNodeId": "24",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"UserTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "users",
+              "Tooltip": "private readonly List<User> users"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"users\",\"C\":{\"K\":\"NamedType\",\"N\":\"UserTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "53",
+      "SourceNodeId": "25",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"WorkspaceTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "workspaces",
+              "Tooltip": "private readonly List<Workspace> workspaces"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"WorkspaceTestRepository\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "54",
+      "SourceNodeId": "27",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public DbSet<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "55",
+      "SourceNodeId": "27",
+      "TargetNodeId": "8",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Offices",
+              "Tooltip": "public DbSet<Office> Offices { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Offices\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "56",
+      "SourceNodeId": "27",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Floors",
+              "Tooltip": "public DbSet<Floor> Floors { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Floors\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "57",
+      "SourceNodeId": "27",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Workspaces",
+              "Tooltip": "public DbSet<Workspace> Workspaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "58",
+      "SourceNodeId": "27",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "ParkingSpaces",
+              "Tooltip": "public DbSet<ParkingSpace> ParkingSpaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"ParkingSpaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "59",
+      "SourceNodeId": "27",
+      "TargetNodeId": "6",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Departments",
+              "Tooltip": "public DbSet<Department> Departments { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Departments\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "60",
+      "SourceNodeId": "27",
+      "TargetNodeId": "10",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Roles",
+              "Tooltip": "public DbSet<Role> Roles { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Roles\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "61",
+      "SourceNodeId": "27",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Users",
+              "Tooltip": "public DbSet<User> Users { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Users\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "62",
+      "SourceNodeId": "27",
+      "TargetNodeId": "12",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "UserPasswords",
+              "Tooltip": "public DbSet<UserPassword> UserPasswords { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"UserPasswords\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "63",
+      "SourceNodeId": "22",
+      "TargetNodeId": "30",
+      "Stereotype": "Implementation",
+      "Payload": {
+        "Discriminator": "Other",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"TestUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"TestData\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.TestData\",\"V\":\"1.0.0.0\"}}}}|Implementation|{\"K\":\"NamedType\",\"N\":\"IUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"Interfaces\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}"
+      }
+    },
+    {
+      "Id": "64",
+      "SourceNodeId": "32",
+      "TargetNodeId": "2",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"BookingStatus\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "BookingStatuses",
+              "Tooltip": "public DbSet<BookingStatus> BookingStatuses { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"BookingStatuses\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "65",
+      "SourceNodeId": "32",
+      "TargetNodeId": "3",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Booking\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Bookings",
+              "Tooltip": "public DbSet<Booking> Bookings { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Bookings\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "66",
+      "SourceNodeId": "32",
+      "TargetNodeId": "6",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Departments",
+              "Tooltip": "public DbSet<Department> Departments { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Departments\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "67",
+      "SourceNodeId": "32",
+      "TargetNodeId": "7",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Floor\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Floors",
+              "Tooltip": "public DbSet<Floor> Floors { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Floors\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "68",
+      "SourceNodeId": "32",
+      "TargetNodeId": "8",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Office\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Offices",
+              "Tooltip": "public DbSet<Office> Offices { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Offices\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "69",
+      "SourceNodeId": "32",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "ParkingSpaces",
+              "Tooltip": "public DbSet<ParkingSpace> ParkingSpaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"ParkingSpaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "70",
+      "SourceNodeId": "32",
+      "TargetNodeId": "10",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Role\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Roles",
+              "Tooltip": "public DbSet<Role> Roles { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Roles\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "71",
+      "SourceNodeId": "32",
+      "TargetNodeId": "11",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Users",
+              "Tooltip": "public DbSet<User> Users { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Users\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "72",
+      "SourceNodeId": "32",
+      "TargetNodeId": "12",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"UserPassword\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "UserPasswords",
+              "Tooltip": "public DbSet<UserPassword> UserPasswords { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"UserPasswords\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "73",
+      "SourceNodeId": "32",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Workspaces",
+              "Tooltip": "public DbSet<Workspace> Workspaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"DAL\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.DAL\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "74",
+      "SourceNodeId": "42",
+      "TargetNodeId": "30",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"ManagersFactory\",\"C\":{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"Business\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Business\",\"V\":\"1.0.0.0\"}}}}}|Association|{\"K\":\"NamedType\",\"N\":\"IUnitOfWork\",\"C\":{\"K\":\"Namespace\",\"N\":\"Interfaces\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "unitOfWork",
+              "Tooltip": "public readonly IUnitOfWork unitOfWork",
+              "CanBeHidden": true
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"unitOfWork\",\"C\":{\"K\":\"NamedType\",\"N\":\"ManagersFactory\",\"C\":{\"K\":\"Namespace\",\"N\":\"Infrastructure\",\"C\":{\"K\":\"Namespace\",\"N\":\"Business\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Business\",\"V\":\"1.0.0.0\"}}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "75",
+      "SourceNodeId": "49",
+      "TargetNodeId": "27",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"BookingDbContext\",\"C\":{\"K\":\"Namespace\",\"N\":\"Data\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "context",
+              "Tooltip": "private readonly BookingDbContext context"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"context\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "76",
+      "SourceNodeId": "49",
+      "TargetNodeId": "9",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"ParkingSpace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "ParkingSpaces",
+              "Tooltip": "public ObservableCollection<ParkingSpace> ParkingSpaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"ParkingSpaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "77",
+      "SourceNodeId": "49",
+      "TargetNodeId": "13",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}|Association|{\"K\":\"NamedType\",\"N\":\"Workspace\",\"C\":{\"K\":\"Namespace\",\"N\":\"Entities\",\"C\":{\"K\":\"Namespace\",\"N\":\"Domain\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem.Domain\",\"V\":\"1.0.0.0\"}}}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "Workspaces",
+              "Tooltip": "public ObservableCollection<Workspace> Workspaces { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Workspaces\",\"C\":{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "78",
+      "SourceNodeId": "49",
+      "TargetNodeId": "50",
+      "Stereotype": "Inheritance",
+      "Payload": {
+        "Discriminator": "Other",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"BookingWindowViewModel\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}|Inheritance|{\"K\":\"NamedType\",\"N\":\"ViewModelBase\",\"C\":{\"K\":\"Namespace\",\"N\":\"ViewModels\",\"C\":{\"K\":\"Namespace\",\"N\":\"BookingSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+      }
+    },
+    {
+      "Id": "79",
+      "SourceNodeId": "57",
+      "TargetNodeId": "59",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"DrawingCanvas\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}|Association|{\"K\":\"NamedType\",\"N\":\"ShapeVisual\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text1": "*",
+              "Text2": "visuals",
+              "Tooltip": "private readonly List<ShapeVisual> visuals"
+            },
+            "Symbol": "{\"K\":\"Field\",\"N\":\"visuals\",\"C\":{\"K\":\"NamedType\",\"N\":\"DrawingCanvas\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+          }
+        ]
+      }
+    },
+    {
+      "Id": "80",
+      "SourceNodeId": "59",
+      "TargetNodeId": "58",
+      "Stereotype": "Association",
+      "Payload": {
+        "Discriminator": "Association",
+        "Relationship": "{\"K\":\"NamedType\",\"N\":\"ShapeVisual\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}|Association|{\"K\":\"NamedType\",\"N\":\"ShapeType\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}",
+        "TargetLabels": [
+          {
+            "Label": {
+              "Text2": "Type",
+              "Tooltip": "public ShapeType Type { get; set; }"
+            },
+            "Symbol": "{\"K\":\"Property\",\"N\":\"Type\",\"C\":{\"K\":\"NamedType\",\"N\":\"ShapeVisual\",\"C\":{\"K\":\"Namespace\",\"N\":\"Drawing\",\"C\":{\"K\":\"Assembly\",\"N\":\"BookingSystem\",\"V\":\"1.0.0.0\"}}}}"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -109,5 +109,10 @@ namespace BookingSystem.TestData
         {
             return await Task.FromResult(userPasswords.AsQueryable().Where(predicate).ToList());
         }
+
+        public IQueryable<UserPassword> GetAll(Expression<Func<UserPassword, bool>> filter, Expression<Func<UserPassword, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

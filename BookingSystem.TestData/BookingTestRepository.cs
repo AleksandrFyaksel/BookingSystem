@@ -32,7 +32,6 @@ namespace BookingSystem.TestData
                     UserID = rnd.Next(1, 3),
                     WorkspaceID = rnd.Next(1, 3),
                     ParkingSpaceID = rnd.Next(1, 3),
-                    FloorID = rnd.Next(1, 3),
                     AdditionalRequirements = $"Дополнительные требования {i}"
                 });
             }
@@ -110,7 +109,7 @@ namespace BookingSystem.TestData
                 existingBooking.StartDateTime = entity.StartDateTime;
                 existingBooking.EndDateTime = entity.EndDateTime;
                 existingBooking.WorkspaceID = entity.WorkspaceID;
-                existingBooking.FloorID = entity.FloorID;
+               
                 existingBooking.UserID = entity.UserID;
                 existingBooking.AdditionalRequirements = entity.AdditionalRequirements;
                 existingBooking.BookingStatusID = entity.BookingStatusID;
@@ -128,6 +127,11 @@ namespace BookingSystem.TestData
         public async Task<IEnumerable<Booking>> FindAsync(Expression<Func<Booking, bool>> predicate)
         {
             return await Task.FromResult(bookings.AsQueryable().Where(predicate).ToList());
+        }
+
+        public IQueryable<Booking> GetAll(Expression<Func<Booking, bool>> filter, Expression<Func<Booking, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
         }
     }
 }

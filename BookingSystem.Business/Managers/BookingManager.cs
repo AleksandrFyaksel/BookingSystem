@@ -1,4 +1,5 @@
-﻿using BookingSystem.Domain.Entities;
+﻿using BookingSystem.DAL.Repositories;
+using BookingSystem.Domain.Entities;
 using BookingSystem.Domain.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
