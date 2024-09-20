@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BookingSystem.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 

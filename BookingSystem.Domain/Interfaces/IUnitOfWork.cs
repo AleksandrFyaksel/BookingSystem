@@ -1,33 +1,24 @@
 ﻿using BookingSystem.Domain.Entities;
-using System;
-using System.Threading.Tasks;
+using BookingSystem.Domain.Interfaces;
 
-namespace BookingSystem.Domain.Interfaces
+namespace BookingSystem.DAL.Repositories
 {
-    /// <summary>
-    /// Интерфейс для единицы работы, обеспечивающий доступ к репозиториям.
-    /// </summary>
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Booking> BookingsRepository { get; }
-        IRepository<Office> OfficesRepository { get; }
-        IRepository<Floor> FloorsRepository { get; }
-        IRepository<Workspace> WorkspacesRepository { get; }
-        IRepository<ParkingSpace> ParkingSpacesRepository { get; }
-        IRepository<User> UsersRepository { get; }
+        IRepository<BookingStatus> BookingStatusesRepository { get; }
         IRepository<Department> DepartmentsRepository { get; }
+        IRepository<Floor> FloorsRepository { get; }
+        IRepository<Office> OfficesRepository { get; }
+        IRepository<ParkingSpace> ParkingSpacesRepository { get; }
         IRepository<Role> RolesRepository { get; }
         IRepository<UserPassword> UserPasswordsRepository { get; }
-        IRepository<BookingStatus> BookingStatusesRepository { get; } // Исправлено на множественное число
+        IRepository<User> UsersRepository { get; }
+        IRepository<Workspace> WorkspacesRepository { get; }
 
-        /// <summary>
-        /// Сохраняет изменения в текущем контексте.
-        /// </summary>
+        bool HasChanges();
+        void Rollback();
         void SaveChanges();
-
-        /// <summary>
-        /// Асинхронно сохраняет изменения в текущем контексте.
-        /// </summary>
         Task SaveChangesAsync();
     }
 }

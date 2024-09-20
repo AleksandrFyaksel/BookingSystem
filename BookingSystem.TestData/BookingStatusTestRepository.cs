@@ -30,11 +30,11 @@ namespace BookingSystem.TestData
 
         public void Add(BookingStatus entity) => bookingStatuses.Add(entity);
 
-        public async Task AddAsync(BookingStatus entity)
+        public Task AddAsync(BookingStatus entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             bookingStatuses.Add(entity);
-            await Task.CompletedTask; 
+            return Task.CompletedTask;
         }
 
         public bool Delete(int id)
@@ -46,20 +46,17 @@ namespace BookingSystem.TestData
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var bookingStatus = Get(id);
+            var bookingStatus = await Task.Run(() => Get(id));
             if (bookingStatus == null) return false;
             bookingStatuses.Remove(bookingStatus);
-            return await Task.FromResult(true); 
+            return true;
         }
 
         public IQueryable<BookingStatus> Find(Expression<Func<BookingStatus, bool>> predicate) => bookingStatuses.AsQueryable().Where(predicate);
 
         public BookingStatus Get(int id, params string[] includes) => bookingStatuses.FirstOrDefault(bs => bs.BookingStatusID == id);
 
-        public async Task<BookingStatus> GetAsync(int id, params string[] includes)
-        {
-            return await Task.FromResult(Get(id, includes)); 
-        }
+        public Task<BookingStatus> GetAsync(int id, params string[] includes) => Task.FromResult(Get(id, includes));
 
         public IQueryable<BookingStatus> GetAll() => bookingStatuses.AsQueryable();
 
@@ -69,15 +66,16 @@ namespace BookingSystem.TestData
             return ascending ? bookingStatuses.AsQueryable().OrderBy(orderBy) : bookingStatuses.AsQueryable().OrderByDescending(orderBy);
         }
 
-        public IQueryable<BookingStatus> GetAll(int pageNumber, int pageSize)
+        public IQueryable<BookingStatus> GetAll(Expression<Func<BookingStatus, bool>> filter, Expression<Func<BookingStatus, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            if (pageNumber < 1)
-                throw new ArgumentOutOfRangeException(nameof(pageNumber), "Номер страницы должен быть больше нуля.");
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+            if (pageNumber < 1) throw new ArgumentOutOfRangeException(nameof(pageNumber), "Номер страницы должен быть больше нуля.");
+            if (pageSize < 1) throw new ArgumentOutOfRangeException(nameof(pageSize), "Размер страницы должен быть больше нуля.");
 
-            if (pageSize < 1)
-                throw new ArgumentOutOfRangeException(nameof(pageSize), "Размер страницы должен быть больше нуля.");
-
-            return bookingStatuses.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsQueryable();
+            var query = bookingStatuses.AsQueryable().Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
         public void Update(BookingStatus entity)
@@ -89,18 +87,33 @@ namespace BookingSystem.TestData
                 existingStatus.Description = entity.Description;
                 existingStatus.IsActive = entity.IsActive;
             }
+            else
+            {
+                throw new ArgumentException("Статус бронирования не найден.");
+            }
         }
 
-        public async Task UpdateAsync(BookingStatus entity)
+        public Task UpdateAsync(BookingStatus entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             Update(entity);
-            await Task.CompletedTask; 
+            return Task.CompletedTask;
         }
 
-        public async Task<IEnumerable<BookingStatus>> FindAsync(Expression<Func<BookingStatus, bool>> predicate)
+        public Task<IEnumerable<BookingStatus>> FindAsync(Expression<Func<BookingStatus, bool>> predicate)
         {
-            return await Task.FromResult(bookingStatuses.AsQueryable().Where(predicate).ToList()); // Убираем Task.Run для простоты
+            return Task.FromResult(bookingStatuses.AsQueryable().Where(predicate).ToList().AsEnumerable());
+        }
+
+        public IQueryable<BookingStatus> GetAll(int pageNumber, int pageSize)
+        {
+            if (pageNumber < 1)
+                throw new ArgumentOutOfRangeException(nameof(pageNumber), "Номер страницы должен быть больше нуля.");
+
+            if (pageSize < 1)
+                throw new ArgumentOutOfRangeException(nameof(pageSize), "Размер страницы должен быть больше нуля.");
+
+            return bookingStatuses.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsQueryable();
         }
     }
 }

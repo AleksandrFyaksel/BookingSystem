@@ -28,7 +28,7 @@ namespace BookingSystem.TestData
                     FloorName = "Этаж 1",
                     OfficeID = 1,
                     ImageData = null,
-                    MimeType = null
+                    ImageMimeType = null
                 });
                 floors.Add(new Floor
                 {
@@ -36,7 +36,7 @@ namespace BookingSystem.TestData
                     FloorName = "Этаж 2",
                     OfficeID = 1,
                     ImageData = null,
-                    MimeType = null
+                    ImageMimeType = null
                 });
                 floors.Add(new Floor
                 {
@@ -44,7 +44,7 @@ namespace BookingSystem.TestData
                     FloorName = "Этаж 3",
                     OfficeID = 2,
                     ImageData = null,
-                    MimeType = null
+                    ImageMimeType = null
                 });
             }
         }
@@ -119,7 +119,7 @@ namespace BookingSystem.TestData
             {
                 existingFloor.FloorName = entity.FloorName;
                 existingFloor.ImageData = entity.ImageData;
-                existingFloor.MimeType = entity.MimeType;
+                existingFloor.ImageMimeType = entity.ImageMimeType;
             }
         }
 
@@ -133,6 +133,11 @@ namespace BookingSystem.TestData
         public async Task<IEnumerable<Floor>> FindAsync(Expression<Func<Floor, bool>> predicate)
         {
             return await Task.FromResult(floors.AsQueryable().Where(predicate).ToList());
+        }
+
+        public IQueryable<Floor> GetAll(Expression<Func<Floor, bool>> filter, Expression<Func<Floor, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
         }
     }
 }

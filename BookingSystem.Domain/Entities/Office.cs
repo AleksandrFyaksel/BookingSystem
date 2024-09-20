@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookingSystem.Domain.Entities
 {
@@ -22,19 +23,14 @@ namespace BookingSystem.Domain.Entities
         [StringLength(15)]
         public string Phone { get; set; }  // Номер телефона офиса
 
-        // Навигационные свойства
+        // Навигационное свойство для этажей
         public virtual ICollection<Floor> Floors { get; set; }  // Связь с этажами
-        public virtual ICollection<Workspace> Workspaces { get; set; }  // Связь с рабочими местами
-        public virtual ICollection<ParkingSpace> ParkingSpaces { get; set; }  // Связь с парковочными местами
-        public virtual ICollection<Booking> Bookings { get; set; }  // Связь с бронированиями
 
-        // Конструктор для инициализации коллекций
+        // Конструктор для инициализации коллекции этажей
         public Office()
         {
             Floors = new List<Floor>();  // Инициализация коллекции этажей
-            Workspaces = new List<Workspace>();  // Инициализация коллекции рабочих мест
-            ParkingSpaces = new List<ParkingSpace>();  // Инициализация коллекции парковочных мест
-            Bookings = new List<Booking>();  // Инициализация коллекции бронирований
         }
     }
+
 }

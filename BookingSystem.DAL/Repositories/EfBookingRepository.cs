@@ -52,8 +52,11 @@ namespace BookingSystem.DAL.Repositories
         public async Task<Booking> GetAsync(int id, params string[] includes)
         {
             IQueryable<Booking> query = bookings;
-            foreach (var include in includes)
-                query = query.Include(include);
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                    query = query.Include(include);
+            }
             return await query.FirstOrDefaultAsync(b => b.BookingID == id);
         }
 
@@ -78,20 +81,20 @@ namespace BookingSystem.DAL.Repositories
             return bookings.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
-        public IQueryable<Booking> GetAll(Func<Booking, object> orderBy, bool ascending = true)
+        public IQueryable<Booking> GetAll(Expression<Func<Booking, object>> orderBy, bool ascending = true)
         {
             if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
-            return ascending ? bookings.OrderBy(orderBy).AsQueryable() : bookings.OrderByDescending(orderBy).AsQueryable();
+            return ascending ? bookings.OrderBy(orderBy) : bookings.OrderByDescending(orderBy);
         }
 
-        public IQueryable<Booking> GetAll(Expression<Func<Booking, object>> include, bool asNoTracking)
+        public IQueryable<Booking> GetAll(Expression<Func<Booking, bool>> filter, Expression<Func<Booking, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            IQueryable<Booking> query = bookings;
-            if (asNoTracking)
-            {
-                query = query.AsNoTracking();
-            }
-            return query.Include(include);
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+
+            var query = bookings.Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
         public async Task UpdateAsync(Booking entity)

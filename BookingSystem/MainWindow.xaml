@@ -7,10 +7,10 @@
     <Grid>
         <Image Source="Resource/background.jpg" Stretch="UniformToFill"/>
         <StackPanel VerticalAlignment="Bottom" Margin="1349,0,-20,4">
-            <Button Content="Вход" Click="LoginButton_Click" Margin="5" Height="40" Width="174"/>
-            <Button Content="Регистрация" Click="RegisterButton_Click" Margin="5" Height="40" Width="175"/>
-            <Button Content="О программе" Click="AboutButton_Click" Margin="5" Height="40" Width="169"/>
-            <Button Content="Выход" Click="ExitButton_Click" Margin="5" Height="40" Width="169"/>
+            <Button x:Name="LoginButton" Content="Вход" Click="LoginButton_Click" Margin="5" Height="40" Width="174"/>
+            <Button x:Name="RegisterButton" Content="Регистрация" Click="RegisterButton_Click" Margin="5" Height="40" Width="175"/>
+            <Button x:Name="AboutButton" Content="О программе" Click="AboutButton_Click" Margin="5" Height="40" Width="169"/>
+            <Button x:Name="ExitButton" Content="Выход" Click="ExitButton_Click" Margin="5" Height="40" Width="169"/>
         </StackPanel>
     </Grid>
 </Window>

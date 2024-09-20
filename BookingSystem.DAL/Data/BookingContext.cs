@@ -10,15 +10,6 @@ namespace BookingSystem.DAL.Data
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BookingSystem1;Trusted_Connection=True;MultipleActiveResultSets=true",
-                    b => b.MigrationsAssembly("BookingSystem.DAL"));
-            }
-        }
-
         // Определение DbSet для каждой сущности
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Department> Departments { get; set; }
@@ -29,17 +20,22 @@ namespace BookingSystem.DAL.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserPassword> UserPasswords { get; set; }
         public DbSet<Workspace> Workspaces { get; set; }
-        public DbSet<BookingStatus> BookingStatuses { get; set; } 
+        public DbSet<BookingStatus> BookingStatuses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Настройка отношений между сущностями
-        
+
+            modelBuilder.Entity<Office>()
+                .HasMany(o => o.Floors)
+                .WithOne(f => f.Office)
+                .HasForeignKey(f => f.OfficeID)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Booking>()
-                .HasOne(b => b.Floor)
-                .WithMany(f => f.Bookings)
-                .HasForeignKey(b => b.FloorID)
+                .HasOne(b => b.BookingStatus)
+                .WithMany(bs => bs.Bookings)
+                .HasForeignKey(b => b.BookingStatusID)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Floor>()
@@ -49,12 +45,10 @@ namespace BookingSystem.DAL.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ParkingSpace>()
-                .HasOne(ps => ps.Office)
-                .WithMany(o => o.ParkingSpaces)
-                .HasForeignKey(ps => ps.OfficeID)
+                .HasOne(ps => ps.Floor)
+                .WithMany(f => f.ParkingSpaces)
+                .HasForeignKey(ps => ps.FloorID)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            
 
             modelBuilder.Entity<Workspace>()
                 .HasOne(ws => ws.Floor)
@@ -62,11 +56,10 @@ namespace BookingSystem.DAL.Data
                 .HasForeignKey(ws => ws.FloorID)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            
-            modelBuilder.Entity<BookingStatus>()
-                .HasMany(bs => bs.Bookings) 
-                .WithOne(b => b.BookingStatus) 
-                .HasForeignKey(b => b.BookingStatusID)
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Department)
+                .WithMany(d => d.Users)
+                .HasForeignKey(u => u.DepartmentID)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

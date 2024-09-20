@@ -22,8 +22,8 @@ namespace BookingSystem.TestData
         {
             if (!parkingSpaces.Any())
             {
-                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 1, Position = "Парковка 1", IsAvailable = true, OfficeID = 1 });
-                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 2, Position = "Парковка 2", IsAvailable = false, OfficeID = 1 });
+                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 1, Position = "Парковка 1", IsAvailable = true, FloorID = 1 });
+                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 2, Position = "Парковка 2", IsAvailable = false, FloorID = 1 });
             }
         }
 
@@ -108,6 +108,11 @@ namespace BookingSystem.TestData
         public async Task<IEnumerable<ParkingSpace>> FindAsync(Expression<Func<ParkingSpace, bool>> predicate)
         {
             return await Task.FromResult(parkingSpaces.AsQueryable().Where(predicate).ToList());
+        }
+
+        public IQueryable<ParkingSpace> GetAll(Expression<Func<ParkingSpace, bool>> filter, Expression<Func<ParkingSpace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
         }
     }
 }

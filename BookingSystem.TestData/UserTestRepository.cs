@@ -99,7 +99,16 @@ namespace BookingSystem.TestData
                 existingUser.PasswordHash = entity.PasswordHash;
                 existingUser.PhoneNumber = entity.PhoneNumber;
                 existingUser.Role = entity.Role;
-                existingUser.UserPasswords = entity.UserPasswords ?? new List<UserPassword>();
+
+                // Обновление коллекции паролей
+                existingUser.UserPasswords.Clear();  // Очистка существующих паролей
+                if (entity.UserPasswords != null)
+                {
+                    foreach (var userPassword in entity.UserPasswords)
+                    {
+                        existingUser.UserPasswords.Add(userPassword);  // Добавление новых паролей по одному
+                    }
+                }
             }
         }
 
@@ -113,6 +122,11 @@ namespace BookingSystem.TestData
         public async Task<IEnumerable<User>> FindAsync(Expression<Func<User, bool>> predicate)
         {
             return await Task.FromResult(users.AsQueryable().Where(predicate).ToList());
+        }
+
+        public IQueryable<User> GetAll(Expression<Func<User, bool>> filter, Expression<Func<User, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
         }
     }
 }

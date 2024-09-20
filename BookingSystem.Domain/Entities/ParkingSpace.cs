@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using BookingSystem.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace BookingSystem.Domain.Entities
+
+namespace BookingSystem.Domain.Entities 
 {
     public class ParkingSpace
     {
         [Key]
         public int ParkingSpaceID { get; set; }  // Уникальный идентификатор парковочного места
-
-        [ForeignKey("Office")]
-        public int OfficeID { get; set; }  // Идентификатор офиса, к которому принадлежит парковочное место
 
         [ForeignKey("Floor")]
         public int FloorID { get; set; }  // Идентификатор этажа, на котором находится парковочное место
@@ -20,7 +18,6 @@ namespace BookingSystem.Domain.Entities
         public bool IsAvailable { get; set; }  // Статус доступности (свободно/занято)
 
         // Навигационные свойства
-        public virtual Office Office { get; set; }  // Связь с офисом
         public virtual Floor Floor { get; set; }  // Связь с этажом
         public virtual ICollection<Booking> Bookings { get; set; }  // Связь с бронированиями
 

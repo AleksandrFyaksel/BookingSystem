@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace BookingSystem.Domain.Entities
 {
     public class UserPassword
     {
         [Key]
-        public int UserPasswordID { get; set; }
-       
+        public int UserPasswordID { get; set; }  // Уникальный идентификатор пароля
 
         [Required]
         [StringLength(256)]

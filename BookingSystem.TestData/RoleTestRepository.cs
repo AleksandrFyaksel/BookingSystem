@@ -108,5 +108,10 @@ namespace BookingSystem.TestData
         {
             return await Task.FromResult(roles.AsQueryable().Where(predicate).ToList());
         }
+
+        public IQueryable<Role> GetAll(Expression<Func<Role, bool>> filter, Expression<Func<Role, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

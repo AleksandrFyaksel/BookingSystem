@@ -26,6 +26,8 @@ namespace BookingSystem
         private readonly BookingContext _context;
         private readonly BookingManager _bookingManager;
 
+      
+
         public BookingWindow(BookingContext context, BookingManager bookingManager)
         {
             InitializeComponent();
@@ -33,18 +35,25 @@ namespace BookingSystem
             _bookingManager = bookingManager ?? throw new ArgumentNullException(nameof(bookingManager));
             PopulateOfficesComboBox();
             PopulateFloorsComboBox();
-
-            // Устанавливаем окно в полноэкранный режим
             this.WindowState = WindowState.Maximized;
         }
+        
+
+
+
 
         private async void PopulateOfficesComboBox()
         {
             try
             {
-                var offices = await _context.Offices.ToListAsync(); // Загрузка офисов из базы данных
-                OfficesComboBox.ItemsSource = offices; // Установка источника данных для ComboBox
-                OfficesComboBox.DisplayMemberPath = "Name"; // Укажите свойство, которое будет отображаться
+                var offices = await _context.Offices.ToListAsync();
+                if (offices == null || !offices.Any())
+                {
+                    MessageBox.Show("Нет доступных офисов.");
+                    return;
+                }
+                OfficesComboBox.ItemsSource = offices;
+                OfficesComboBox.DisplayMemberPath = "Name";
             }
             catch (Exception ex)
             {
@@ -52,13 +61,21 @@ namespace BookingSystem
             }
         }
 
+        private void OfficesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (OfficesComboBox.SelectedItem is Office selectedOffice)
+            {
+                MessageBox.Show($"Выбран офис: {selectedOffice.OfficeName}");
+            }
+        }
+
         private async void PopulateFloorsComboBox()
         {
             try
             {
-                var floors = await _context.Floors.ToListAsync(); // Загрузка этажей из базы данных
-                FloorsComboBox.ItemsSource = floors; // Установка источника данных для ComboBox
-                FloorsComboBox.DisplayMemberPath = "FloorName"; // Укажите свойство, которое будет отображаться
+                var floors = await _context.Floors.ToListAsync();
+                FloorsComboBox.ItemsSource = floors;
+                FloorsComboBox.DisplayMemberPath = "FloorName";
             }
             catch (Exception ex)
             {
@@ -95,27 +112,23 @@ namespace BookingSystem
             backgroundBrush = null;
         }
 
-        private async void OfficesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (OfficesComboBox.SelectedItem is Office selectedOffice)
-            {
-                try
-                {
-                    // Загрузка рабочих мест для выбранного офиса
-                    var workspaces = await _context.Workspaces
-                        .Where(ws => ws.FloorID == selectedOffice.OfficeID)
-                        .ToListAsync();
-
-                    // Отображение рабочих мест в интерфейсе
-                    // WorkspacesListBox.ItemsSource = workspaces; 
-                    // WorkspacesListBox.DisplayMemberPath = "Label"; 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при загрузке рабочих мест: {ex.Message}");
-                }
-            }
-        }
+        //private async void OfficesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (OfficesComboBox.SelectedItem is Office selectedOffice)
+        //    {
+        //        try
+        //        {
+        //            var workspaces = await _context.Workspaces
+        //                .Where(ws => ws.FloorID == selectedOffice.OfficeID)
+        //                .ToListAsync();
+        //            // Обновите интерфейс для отображения рабочих мест
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"Ошибка при загрузке рабочих мест: {ex.Message}");
+        //        }
+        //    }
+        //}
 
         private async void FloorsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -123,20 +136,10 @@ namespace BookingSystem
             {
                 try
                 {
-                    // Загрузка парковочных мест для выбранного этажа
                     var parkingSpaces = await _context.ParkingSpaces
                         .Where(ps => ps.FloorID == selectedFloor.FloorID)
                         .ToListAsync();
-
-                    // Отображение парковочных мест в интерфейсе
-                    // ParkingSpacesListBox.ItemsSource = parkingSpaces; 
-                    // ParkingSpacesListBox.DisplayMemberPath = "Label"; 
-
-                    // Отображение изображения этажа
-                    if (selectedFloor.ImageData != null)
-                    {
-                        // DisplayImage(selectedFloor.ImageData, selectedFloor.ImageMimeType);
-                    }
+                    // Обновите интерфейс для отображения парковочных мест
                 }
                 catch (Exception ex)
                 {
@@ -162,13 +165,10 @@ namespace BookingSystem
                     string mimeType = GetMimeType(filePath);
 
                     selectedFloor.ImageData = imageData;
-                    selectedFloor.MimeType = mimeType;
+                    selectedFloor.ImageMimeType = mimeType;
 
-                    // Сохранение изменений в базе данных
-                    _context.Floors.Update(selectedFloor);
+                    _context.Floors.Update(entity: selectedFloor);
                     await _context.SaveChangesAsync();
-
-                    // DisplayImage(selectedFloor.ImageData, selectedFloor.MimeType);
                 }
                 catch (Exception ex)
                 {
@@ -205,11 +205,10 @@ namespace BookingSystem
 
             if (shapeVisual != null)
             {
-                // Создайте экземпляр BookingForm с передачей BookingManager
-                BookingForm bookingForm = new BookingForm(_bookingManager); // Передаем _bookingManager
+                BookingForm bookingForm = new BookingForm(_bookingManager);
                 if (bookingForm.ShowDialog() == true)
                 {
-                    string bookingDate = bookingForm.BookingDate.ToString("d"); // Преобразуем в строку
+                    string bookingDate = bookingForm.BookingDate.ToString("d");
                     string startTime = bookingForm.StartTime;
                     string endTime = bookingForm.EndTime;
                     string additionalRequirements = bookingForm.AdditionalRequirements;

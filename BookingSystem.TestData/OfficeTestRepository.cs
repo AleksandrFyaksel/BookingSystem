@@ -112,5 +112,10 @@ namespace BookingSystem.TestData
         {
             return await Task.FromResult(offices.AsQueryable().Where(predicate).ToList());
         }
+
+        public IQueryable<Office> GetAll(Expression<Func<Office, bool>> filter, Expression<Func<Office, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,99 +1,113 @@
 @startuml
 
-class BookingSystem {
-    +createBooking()
-    +cancelBooking()
-    +getAvailableWorkspaces()
-    +getAvailableParkingSpaces()
-}
-
-class BookingStatuses {
-    +int BookingStatusID
-    +String StatusName
-    +String Description
-    +boolean IsActive
-}
-
-class Departments {
-    +int DepartmentID
-    +String DepartmentName
-}
-
-class Roles {
-    +int RoleID
-    +String RoleName
-}
-
-class Offices {
-    +int OfficeID
-    +String OfficeName
-    +String Location
-    +int Capacity
-    +String PhoneNumber
-}
-
-class Floors {
-    +int FloorID
-    +String FloorName
-    +int OfficeID
-    +byte[] ImageData
-    +String ImageMimeType
-}
-
-class Users {
-    +int UserID
-    +String Name
-    +String Login
-    +String Email
-    +String PhoneNumber
-    +String PasswordHash
-    +int RoleID
-    +int DepartmentID
-}
-
-class ParkingSpaces {
-    +int ParkingSpaceID
-    +int OfficeID
-    +String Label
-    +String Position
-    +boolean IsAvailable
-}
-
-class UserPasswords {
-    +int UserPasswordID
-    +int UserID
-    +String PasswordHash
-    +String Salt
-}
-
-class Workspaces {
-    +int WorkspaceID
-    +int FloorID
-    +String Label
-    +String Type
-    +boolean IsAvailable
-    +String Position
-}
-
-class Bookings {
+class Booking {
     +int BookingID
     +int UserID
-    +int WorkspaceID
-    +int ParkingSpaceID
-    +Date BookingDate
-    +Time StartTime
-    +Time EndTime
+    +int? WorkspaceID
+    +int? ParkingSpaceID
+    +DateTime BookingDate
+    +DateTime StartDateTime
+    +DateTime EndDateTime
     +int BookingStatusID
+    +string? AdditionalRequirements
+    +User User
+    +Workspace Workspace
+    +ParkingSpace ParkingSpace
+    +BookingStatus BookingStatus
 }
 
-BookingStatuses "1" -- "0..*" Bookings : has
-Departments "1" -- "0..*" Users : employs
-Roles "1" -- "0..*" Users : assigned
-Offices "1" -- "0..*" Floors : contains
-Offices "1" -- "0..*" ParkingSpaces : has
-Floors "1" -- "0..*" Workspaces : contains
-Users "1" -- "0..*" Bookings : makes
-Workspaces "1" -- "0..*" Bookings : reserved
-ParkingSpaces "1" -- "0..*" Bookings : reserved
+class BookingStatus {
+    +int BookingStatusID
+    +string StatusName
+    +string Description
+    +boolean IsActive
+    +ICollection<Booking> Bookings
+}
+
+class Department {
+    +int DepartmentID
+    +string DepartmentName
+    +ICollection<User> Users
+}
+
+class Role {
+    +int RoleID
+    +string RoleName
+    +ICollection<User> Users
+}
+
+class Office {
+    +int OfficeID
+    +string OfficeName
+    +string Location
+    +int Capacity
+    +string Phone
+    +ICollection<Floor> Floors
+}
+
+class Floor {
+    +int FloorID
+    +string FloorName
+    +int OfficeID
+    +byte[] ImageData
+    +string ImageMimeType
+    +ICollection<Workspace> Workspaces
+    +ICollection<ParkingSpace> ParkingSpaces
+}
+
+class User {
+    +int UserID
+    +string Name
+    +string Login
+    +string Email
+    +string PhoneNumber
+    +string PasswordHash
+    +int RoleID
+    +int? DepartmentID
+    +Role Role
+    +Department Department
+    +ICollection<Booking> Bookings
+    +ICollection<UserPassword> UserPasswords
+}
+
+class ParkingSpace {
+    +int ParkingSpaceID
+    +int FloorID
+    +string Label
+    +string Position
+    +boolean IsAvailable
+    +Floor Floor
+    +ICollection<Booking> Bookings
+}
+
+class UserPassword {
+    +int UserPasswordID
+    +int UserID
+    +string PasswordHash
+    +string Salt
+    +User User
+}
+
+class Workspace {
+    +int WorkspaceID
+    +int FloorID
+    +string Label
+    +string Type
+    +boolean IsAvailable
+    +string Position
+    +Floor Floor
+    +ICollection<Booking> Bookings
+}
+
+BookingStatus "1" -- "0..*" Booking : has
+Department "1" -- "0..*" User : employs
+Role "1" -- "0..*" User : assigned
+Office "1" -- "0..*" Floor : contains
+Floor "1" -- "0..*" Workspace : contains
+Floor "1" -- "0..*" ParkingSpace : contains
+User "1" -- "0..*" Booking : makes
+Workspace "1" -- "0..*" Booking : reserved
+ParkingSpace "1" -- "0..*" Booking : reserved
+User "1" -- "0..*" UserPassword : has
 
 @enduml

@@ -3,6 +3,7 @@ using BookingSystem.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BookingSystem.DAL.Repositories;
 
 namespace BookingSystem.TestData
 {
@@ -102,6 +103,16 @@ namespace BookingSystem.TestData
 
             // Вызываем метод Dispose для освобождения управляемых ресурсов
             GC.SuppressFinalize(this);
+        }
+
+        public bool HasChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Rollback()
+        {
+            throw new NotImplementedException();
         }
     }
 }

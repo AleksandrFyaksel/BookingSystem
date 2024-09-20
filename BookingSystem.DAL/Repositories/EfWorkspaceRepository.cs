@@ -94,5 +94,10 @@ namespace BookingSystem.DAL.Repositories
         }
 
         public void Update(Workspace entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public IQueryable<Workspace> GetAll(Expression<Func<Workspace, bool>> filter, Expression<Func<Workspace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

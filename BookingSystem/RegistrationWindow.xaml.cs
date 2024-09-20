@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -7,112 +6,115 @@ using System.Windows.Controls;
 using BookingSystem.DAL.Data;
 using BookingSystem.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
+using BookingSystem.Business.Managers;
 
 namespace BookingSystem
 {
     public partial class RegistrationWindow : Window
     {
+        private readonly BookingContext _context;
+        private readonly BookingManager _bookingManager;
         private readonly IServiceProvider _serviceProvider;
 
-        public RegistrationWindow(IServiceProvider serviceProvider)
+        public RegistrationWindow(BookingContext context, BookingManager bookingManager, IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _serviceProvider = serviceProvider;
-            Loaded += RegistrationWindow_Loaded;
-        }
-
-        private void RegistrationWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Maximized;
-            this.Topmost = true;
-        }
-
-        private void LoginTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Включаем кнопку регистрации, если длина логина >= 3
-            RegisterButton.IsEnabled = LoginTextBox.Text.Length >= 3;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _bookingManager = bookingManager ?? throw new ArgumentNullException(nameof(bookingManager));
+            _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
-            // Сбор данных из полей ввода
-            string username = LoginTextBox.Text.Trim();
-            string password = PasswordBox.Password;
-            string confirmPassword = ConfirmPasswordBox.Password;
+            string login = LoginTextBox.Text.Trim();
+            string password = PasswordBox.Password.Trim();
+            string confirmPassword = ConfirmPasswordBox.Password.Trim();
             string email = EmailTextBox.Text.Trim();
             string phoneNumber = PhoneTextBox.Text.Trim();
 
-            ResetErrorTags();
+            // Валидация введенных данных
+            if (!ValidateInput(login, password, confirmPassword, email))
+                return;
 
-            // Проверка на пустые поля и установка ошибок
-            if (string.IsNullOrWhiteSpace(username))
+            // Проверка на существование пользователя
+            if (UserExists(login, email))
             {
-                SetErrorTag(LoginTextBox, "Пожалуйста, введите логин.");
+                MessageBox.Show("Пользователь с таким логином или email уже существует.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(password))
+            // Создание нового пользователя
+            var newUser = new User
             {
-                SetErrorTag(PasswordBox, "Пожалуйста, введите пароль.");
-                return;
+                Name = login,
+                Email = email,
+                PhoneNumber = phoneNumber,
+                PasswordHash = HashPassword(password)
+            };
+
+            // Сохранение нового пользователя в базе данных
+            SaveNewUser(newUser);
+        }
+
+        private bool ValidateInput(string login, string password, string confirmPassword, string email)
+        {
+            if (string.IsNullOrEmpty(login) || login.Length < 3)
+            {
+                MessageBox.Show("Логин должен содержать не менее 3 символов.");
+                return false;
             }
 
-            if (string.IsNullOrWhiteSpace(confirmPassword))
+            if (string.IsNullOrEmpty(password) || password.Length < 6)
             {
-                SetErrorTag(ConfirmPasswordBox, "Пожалуйста, повторите пароль.");
-                return;
+                MessageBox.Show("Пароль должен содержать не менее 6 символов.");
+                return false;
             }
 
             if (password != confirmPassword)
             {
-                SetErrorTag(PasswordBox, "Пароли не совпадают.");
-                SetErrorTag(ConfirmPasswordBox, "Пароли не совпадают.");
-                return;
+                MessageBox.Show("Пароли не совпадают.");
+                return false;
             }
 
-            if (string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrEmpty(email) || !IsValidEmail(email))
             {
-                SetErrorTag(EmailTextBox, "Пожалуйста, введите email.");
-                return;
+                MessageBox.Show("Введите действующий email.");
+                return false;
             }
 
-            if (string.IsNullOrWhiteSpace(phoneNumber))
+            return true;
+        }
+
+        private bool UserExists(string login, string email)
+        {
+            return _context.Users.Any(u => u.Email == email || u.Name == login);
+        }
+
+        private void SaveNewUser(User newUser)
+        {
+            try
             {
-                SetErrorTag(PhoneTextBox, "Пожалуйста, введите номер телефона.");
-                return;
+                _context.Users.Add(newUser);
+                _context.SaveChanges();
+                MessageBox.Show("Регистрация прошла успешно!");
+                this.Close();
             }
-
-            // Настройка контекста базы данных
-            var optionsBuilder = new DbContextOptionsBuilder<BookingContext>();
-            optionsBuilder.UseSqlServer(((App)Application.Current).Configuration.GetConnectionString("BookingDatabase"));
-
-            using (var context = new BookingContext(optionsBuilder.Options))
+            catch (Exception ex)
             {
-                // Проверка на существование пользователя с таким логином
-                if (context.Users.Any(u => u.Name == username || u.Email == email))
-                {
-                    SetErrorTag(LoginTextBox, "Пользователь с таким именем или email уже существует.");
-                    return;
-                }
-
-                // Создание нового пользователя
-                var newUser = new User
-                {
-                    Name = username,
-                    PasswordHash = HashPassword(password),
-                    Email = email,
-                    PhoneNumber = phoneNumber
-                };
-
-                context.Users.Add(newUser);
-                context.SaveChanges();
+                MessageBox.Show($"Ошибка при сохранении пользователя: {ex.Message}");
             }
+        }
 
-            // Переход к окну входа после успешной регистрации
-            var entranceWindow = _serviceProvider.GetRequiredService<Entrance>();
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var entranceWindow = new Entrance(_context, _bookingManager, _serviceProvider);
             entranceWindow.Show();
             this.Close();
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private string HashPassword(string password)
@@ -124,31 +126,17 @@ namespace BookingSystem
             }
         }
 
-        private void ResetErrorTags()
+        private bool IsValidEmail(string email)
         {
-            LoginTextBox.Tag = null;
-            PasswordBox.Tag = null;
-            ConfirmPasswordBox.Tag = null;
-            EmailTextBox.Tag = null;
-            PhoneTextBox.Tag = null;
-        }
-
-        private void SetErrorTag(Control control, string message)
-        {
-            control.Tag = "Error";
-            MessageBox.Show(message);
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            var entranceWindow = _serviceProvider.GetRequiredService<Entrance>();
-            entranceWindow.Show();
-            this.Close();
-        }
-
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
