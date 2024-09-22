@@ -7,6 +7,7 @@ using BookingSystem.DAL.Data;
 using BookingSystem.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using BookingSystem.Business.Managers;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingSystem
 {
@@ -22,15 +23,48 @@ namespace BookingSystem
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _bookingManager = bookingManager ?? throw new ArgumentNullException(nameof(bookingManager));
             _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+
+            
+            this.WindowState = WindowState.Maximized;
+            
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
+            // Проверка на пустые поля
+            if (string.IsNullOrEmpty(LoginTextBox.Text.Trim()))
+            {
+                MessageBox.Show("Логин не может быть пустым.");
+                return;
+            }
+
             string login = LoginTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(PasswordBox.Password.Trim()))
+            {
+                MessageBox.Show("Пароль не может быть пустым.");
+                return;
+            }
+
             string password = PasswordBox.Password.Trim();
+
+            if (string.IsNullOrEmpty(ConfirmPasswordBox.Password.Trim()))
+            {
+                MessageBox.Show("Подтверждение пароля не может быть пустым.");
+                return;
+            }
+
             string confirmPassword = ConfirmPasswordBox.Password.Trim();
+
+            if (string.IsNullOrEmpty(EmailTextBox.Text.Trim()))
+            {
+                MessageBox.Show("Email не может быть пустым.");
+                return;
+            }
+
             string email = EmailTextBox.Text.Trim();
-            string phoneNumber = PhoneTextBox.Text.Trim();
+
+            string phoneNumber = PhoneTextBox.Text.Trim(); // Здесь также можно добавить проверку на пустое значение
 
             // Валидация введенных данных
             if (!ValidateInput(login, password, confirmPassword, email))
@@ -43,13 +77,22 @@ namespace BookingSystem
                 return;
             }
 
+            // Проверка на существование роли
+            var defaultRole = _context.Roles.FirstOrDefault(r => r.RoleID == 1); // Замените 1 на ID вашей роли по умолчанию
+            if (defaultRole == null)
+            {
+                MessageBox.Show("Роль по умолчанию не найдена. Пожалуйста, добавьте роль в систему.");
+                return;
+            }
+
             // Создание нового пользователя
             var newUser = new User
             {
                 Name = login,
                 Email = email,
                 PhoneNumber = phoneNumber,
-                PasswordHash = HashPassword(password)
+                PasswordHash = HashPassword(password),
+                RoleID = defaultRole.RoleID // Используем ID найденной роли
             };
 
             // Сохранение нового пользователя в базе данных
@@ -97,7 +140,17 @@ namespace BookingSystem
                 _context.Users.Add(newUser);
                 _context.SaveChanges();
                 MessageBox.Show("Регистрация прошла успешно!");
+
+                // Открываем окно входа
+                var entranceWindow = new Entrance(_context, _bookingManager, _serviceProvider);
+                entranceWindow.Show();
                 this.Close();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Получаем информацию о внутреннем исключении
+                var innerException = dbEx.InnerException?.Message ?? "Неизвестная ошибка базы данных.";
+                MessageBox.Show($"Ошибка при сохранении пользователя: {dbEx.Message}\n{innerException}");
             }
             catch (Exception ex)
             {

@@ -26,8 +26,6 @@ namespace BookingSystem
         private readonly BookingContext _context;
         private readonly BookingManager _bookingManager;
 
-      
-
         public BookingWindow(BookingContext context, BookingManager bookingManager)
         {
             InitializeComponent();
@@ -37,27 +35,37 @@ namespace BookingSystem
             PopulateFloorsComboBox();
             this.WindowState = WindowState.Maximized;
         }
-        
-
-
-
 
         private async void PopulateOfficesComboBox()
         {
             try
             {
-                var offices = await _context.Offices.ToListAsync();
+                var offices = await _bookingManager.GetAllOfficesAsync();
                 if (offices == null || !offices.Any())
                 {
                     MessageBox.Show("Нет доступных офисов.");
                     return;
                 }
                 OfficesComboBox.ItemsSource = offices;
-                OfficesComboBox.DisplayMemberPath = "Name";
+                OfficesComboBox.DisplayMemberPath = "OfficeName";
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при загрузке офисов: {ex.Message}");
+            }
+        }
+
+        private async void PopulateFloorsComboBox()
+        {
+            try
+            {
+                var floors = await _bookingManager.GetAllFloorsAsync();
+                FloorsComboBox.ItemsSource = floors;
+                FloorsComboBox.DisplayMemberPath = "FloorName";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке этажей: {ex.Message}");
             }
         }
 
@@ -69,17 +77,92 @@ namespace BookingSystem
             }
         }
 
-        private async void PopulateFloorsComboBox()
+        private async void FloorsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
+            if (FloorsComboBox.SelectedItem is Floor selectedFloor)
             {
-                var floors = await _context.Floors.ToListAsync();
-                FloorsComboBox.ItemsSource = floors;
-                FloorsComboBox.DisplayMemberPath = "FloorName";
+                LoadImageForFloor(selectedFloor); // Загружаем изображение для выбранного этажа
+
+                try
+                {
+                    // Получаем парковочные места для выбранного этажа
+                    var parkingSpaces = await _context.ParkingSpaces
+                        .Where(ps => ps.FloorID == selectedFloor.FloorID)
+                        .ToListAsync();
+
+                    // Получаем рабочие места для выбранного этажа
+                    var workspaces = await _context.Workspaces
+                        .Where(ws => ws.FloorID == selectedFloor.FloorID)
+                        .ToListAsync();
+
+                    // Отображаем парковочные места и рабочие места на графической поверхности
+                    DisplayParkingSpaces(parkingSpaces);
+                    DisplayWorkspaces(workspaces);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}");
+                }
             }
-            catch (Exception ex)
+        }
+
+        private void DisplayParkingSpaces(List<ParkingSpace> parkingSpaces)
+        {
+            drawingSurface.Clear(); // Очистка предыдущих визуализаций, если необходимо
+
+            foreach (var space in parkingSpaces)
             {
-                MessageBox.Show($"Ошибка при загрузке этажей: {ex.Message}");
+                DrawingVisual visual = new DrawingVisual();
+                ShapeType shapeType = ShapeType.Circle; // Указываем, что это парковочное место
+                ShapeVisual shapeVisual = new ShapeVisual(visual, shapeType, space.Label, space.IsAvailable);
+
+                // Обновляем цвет фигуры в зависимости от статуса доступности
+                shapeVisual.UpdateVisualColor();
+
+                // Добавляем визуализацию на поверхность
+                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label);
+            }
+        }
+
+        private void DisplayWorkspaces(List<Workspace> workspaces)
+        {
+            foreach (var workspace in workspaces)
+            {
+                DrawingVisual visual = new DrawingVisual();
+                ShapeType shapeType = ShapeType.Square; // Указываем, что это рабочее место
+                ShapeVisual shapeVisual = new ShapeVisual(visual, shapeType, workspace.Label, workspace.IsAvailable);
+
+                // Обновляем цвет фигуры в зависимости от статуса доступности
+                shapeVisual.UpdateVisualColor();
+
+                // Добавляем визуализацию на поверхность
+                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label);
+            }
+        }
+
+        private void LoadImageForFloor(Floor selectedFloor)
+        {
+            if (selectedFloor == null)
+            {
+                MessageBox.Show("Выберите этаж перед загрузкой изображения.");
+                return;
+            }
+
+            if (selectedFloor.ImageData != null && selectedFloor.ImageData.Length > 0)
+            {
+                using (var stream = new MemoryStream(selectedFloor.ImageData))
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.StreamSource = stream;
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+                    FloorImageControl.Source = bitmap; // Установите изображение в элемент управления Image
+                }
+            }
+            else
+            {
+                FloorImageControl.Source = null; // Очистите изображение, если его нет
             }
         }
 
@@ -112,71 +195,6 @@ namespace BookingSystem
             backgroundBrush = null;
         }
 
-        //private async void OfficesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (OfficesComboBox.SelectedItem is Office selectedOffice)
-        //    {
-        //        try
-        //        {
-        //            var workspaces = await _context.Workspaces
-        //                .Where(ws => ws.FloorID == selectedOffice.OfficeID)
-        //                .ToListAsync();
-        //            // Обновите интерфейс для отображения рабочих мест
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show($"Ошибка при загрузке рабочих мест: {ex.Message}");
-        //        }
-        //    }
-        //}
-
-        private async void FloorsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (FloorsComboBox.SelectedItem is Floor selectedFloor)
-            {
-                try
-                {
-                    var parkingSpaces = await _context.ParkingSpaces
-                        .Where(ps => ps.FloorID == selectedFloor.FloorID)
-                        .ToListAsync();
-                    // Обновите интерфейс для отображения парковочных мест
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при загрузке парковочных мест: {ex.Message}");
-                }
-            }
-        }
-
-        private async void LoadImageForFloor(Floor selectedFloor)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png",
-                Title = "Select Floor Image"
-            };
-
-            if (openFileDialog.ShowDialog() == true)
-            {
-                try
-                {
-                    string filePath = openFileDialog.FileName;
-                    byte[] imageData = File.ReadAllBytes(filePath);
-                    string mimeType = GetMimeType(filePath);
-
-                    selectedFloor.ImageData = imageData;
-                    selectedFloor.ImageMimeType = mimeType;
-
-                    _context.Floors.Update(entity: selectedFloor);
-                    await _context.SaveChangesAsync();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}");
-                }
-            }
-        }
-
         private string GetMimeType(string filePath)
         {
             var extension = System.IO.Path.GetExtension(filePath).ToLowerInvariant();
@@ -194,12 +212,9 @@ namespace BookingSystem
             Point pointClicked = e.GetPosition(drawingSurface);
             ShapeVisual shapeVisual = drawingSurface.GetVisual(pointClicked);
 
-            if (cmdDelete.IsChecked == true)
+            if (cmdDelete.IsChecked == true && shapeVisual != null)
             {
-                if (shapeVisual != null)
-                {
-                    drawingSurface.DeleteVisual(shapeVisual.Visual);
-                }
+                drawingSurface.DeleteVisual(shapeVisual.Visual);
                 return;
             }
 
@@ -218,29 +233,34 @@ namespace BookingSystem
             }
             else
             {
-                if (cmdAdd.IsChecked == true)
+                HandleShapeCreation(pointClicked);
+            }
+        }
+
+        private void HandleShapeCreation(Point pointClicked)
+        {
+            if (cmdAdd.IsChecked == true)
+            {
+                string label = PromptForLabel();
+                DrawingVisual visual = new DrawingVisual();
+                DrawSquare(visual, pointClicked, false);
+                drawingSurface.AddVisual(visual, ShapeType.Square, label);
+            }
+            else if (cmdAddCircle.IsChecked == true)
+            {
+                string label = PromptForLabel();
+                DrawingVisual visual = new DrawingVisual();
+                DrawCircle(visual, pointClicked, false);
+                drawingSurface.AddVisual(visual, ShapeType.Circle, label);
+            }
+            else if (cmdSelectMove.IsChecked == true)
+            {
+                ShapeVisual shapeToMove = drawingSurface.GetVisual(pointClicked);
+                if (shapeToMove != null)
                 {
-                    string label = PromptForLabel();
-                    DrawingVisual visual = new DrawingVisual();
-                    DrawSquare(visual, pointClicked, false);
-                    drawingSurface.AddVisual(visual, ShapeType.Square, label);
-                }
-                else if (cmdAddCircle.IsChecked == true)
-                {
-                    string label = PromptForLabel();
-                    DrawingVisual visual = new DrawingVisual();
-                    DrawCircle(visual, pointClicked, false);
-                    drawingSurface.AddVisual(visual, ShapeType.Circle, label);
-                }
-                else if (cmdSelectMove.IsChecked == true)
-                {
-                    ShapeVisual shapeToMove = drawingSurface.GetVisual(pointClicked);
-                    if (shapeToMove != null)
-                    {
-                        clickOffset = shapeToMove.Visual.ContentBounds.TopLeft - pointClicked;
-                        isDragging = true;
-                        selectedVisual = shapeToMove;
-                    }
+                    clickOffset = shapeToMove.Visual.ContentBounds.TopLeft - pointClicked;
+                    isDragging = true;
+                    selectedVisual = shapeToMove;
                 }
             }
         }

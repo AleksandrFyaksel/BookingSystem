@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace Drawing
 {
-    public class DrawingCanvas : Panel
+    public class DrawingCanvas : Canvas //  Canvas,  Background и другие свойства
     {
         private readonly List<ShapeVisual> visuals = new List<ShapeVisual>();
 
@@ -79,6 +80,15 @@ namespace Drawing
                 }
             }
             return HitTestResultBehavior.Continue;
+        }
+
+        // Метод для очистки визуализаций
+        public void Clear()
+        {
+            foreach (var visual in visuals.ToList())
+            {
+                DeleteVisual(visual.Visual);
+            }
         }
     }
 }
