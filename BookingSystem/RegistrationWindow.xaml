@@ -1,7 +1,9 @@
 ﻿<Window x:Class="BookingSystem.RegistrationWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Регистрация" Height="450" Width="800">
+        Title="Регистрация" 
+        WindowState="Maximized" 
+        WindowStyle="None">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Style.Triggers>
@@ -23,50 +25,37 @@
     <Grid Background="WhiteSmoke">
         <Image Source="Resource/background.jpg" Stretch="UniformToFill"/>
         <Border MinWidth="400" Margin="15" VerticalAlignment="Center" Padding="30" MaxWidth="100" Background="White" BorderBrush="LightGray" BorderThickness="2" CornerRadius="15">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
-            </Border.Effect>
             <StackPanel>
                 <TextBlock Text="Регистрация" FontWeight="Bold" FontSize="30" TextDecorations="Underline" Margin="0 0 0 20" HorizontalAlignment="Center"/>
 
                 <Grid Margin="0 0 0 10">
                     <TextBox x:Name="LoginTextBox" Margin="0" Height="30" Tag=""/>
-                    <TextBlock Text="Введите логин" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" 
-                               Visibility="{Binding ElementName=LoginTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
-                    <TextBlock Text="Логин должен содержать не менее 3 символов" Foreground="LightGray" Margin="5,0,0,0" 
-                               Visibility="{Binding ElementName=LoginTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
+                    <TextBlock Text="Введите Имя Фамилию" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" 
+                               Visibility="{Binding ElementName=LoginTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Visible'}"/>
                 </Grid>
 
                 <Grid Margin="0 0 0 10">
                     <PasswordBox x:Name="PasswordBox" Margin="0" Height="30" Tag=""/>
                     <TextBlock Text="Введите пароль" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" 
-                               Visibility="{Binding ElementName=PasswordBox, Path=Password, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
-                    <TextBlock Text="Пароль должен содержать не менее 6 символов" Foreground="LightGray" Margin="5,0,0,0" 
-                               Visibility="{Binding ElementName=PasswordBox, Path=Password, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
+                               Visibility="{Binding ElementName=PasswordBox, Path=Password, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Visible'}"/>
                 </Grid>
 
                 <Grid Margin="0 0 0 10">
                     <PasswordBox x:Name="ConfirmPasswordBox" Margin="0" Height="30" Tag=""/>
                     <TextBlock Text="Повторите пароль" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" 
-                               Visibility="{Binding ElementName=ConfirmPasswordBox, Path=Password, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
-                    <TextBlock Text="Введите тот же пароль" Foreground="LightGray" Margin="5,0,0,0" 
-                               Visibility="{Binding ElementName=ConfirmPasswordBox, Path=Password, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
+                               Visibility="{Binding ElementName=ConfirmPasswordBox, Path=Password, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Visible'}"/>
                 </Grid>
 
                 <Grid Margin="0 0 0 10">
                     <TextBox x:Name="EmailTextBox" Margin="0" Height="30" Tag=""/>
                     <TextBlock Text="Email" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" 
-                               Visibility="{Binding ElementName=EmailTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
-                    <TextBlock Text="Введите действующий email" Foreground="LightGray" Margin="5,0,0,0" 
-                               Visibility="{Binding ElementName=EmailTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
+                               Visibility="{Binding ElementName=EmailTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Visible'}"/>
                 </Grid>
 
                 <Grid Margin="0 0 0 10">
                     <TextBox x:Name="PhoneTextBox" Margin="0" Height="30" Tag=""/>
                     <TextBlock Text="Номер телефона" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" 
-                               Visibility="{Binding ElementName=PhoneTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
-                    <TextBlock Text="Введите номер телефона" Foreground="LightGray" Margin="5,0,0,0" 
-                               Visibility="{Binding ElementName=PhoneTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
+                               Visibility="{Binding ElementName=PhoneTextBox, Path=Text, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Visible'}"/>
                 </Grid>
 
                 <Button x:Name="RegisterButton" Content="Зарегистрироваться" 
