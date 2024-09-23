@@ -1,5 +1,4 @@
-﻿using BookingSystem.Domain.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,13 +18,13 @@ namespace BookingSystem.Domain.Entities
         // Название этажа
         [Required]
         [StringLength(100)]
-        public string FloorName { get; set; }  // Убедитесь, что это свойство существует
+        public string FloorName { get; set; }  // Название этажа
 
         // Данные изображения этажа
-        public byte[] ImageData { get; set; }  // Убедитесь, что это свойство существует
+        public byte[] ImageData { get; set; }  // Данные изображения этажа
 
         // MIME-тип изображения
-        public string ImageMimeType { get; set; }  // Убедитесь, что это свойство существует
+        public string ImageMimeType { get; set; }  // MIME-тип изображения
 
         // Навигационные свойства для рабочих мест и парковочных мест
         public virtual ICollection<Workspace> Workspaces { get; set; }  // Связь с рабочими местами

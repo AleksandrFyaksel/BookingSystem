@@ -25,7 +25,6 @@ namespace BookingSystem.DAL.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Настройка отношений между сущностями
-
             modelBuilder.Entity<Office>()
                 .HasMany(o => o.Floors)
                 .WithOne(f => f.Office)
@@ -61,6 +60,17 @@ namespace BookingSystem.DAL.Data
                 .WithMany(d => d.Users)
                 .HasForeignKey(u => u.DepartmentID)
                 .OnDelete(DeleteBehavior.Restrict);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                
+           
+                optionsBuilder.UseSqlServer("BookingDatabase",
+                    b => b.MigrationsAssembly("BookingSystem")); 
+            }
         }
     }
 }

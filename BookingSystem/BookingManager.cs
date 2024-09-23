@@ -16,16 +16,19 @@ namespace BookingSystem.Business.Managers
             _context = context;
         }
 
+        // Получение всех офисов
         public async Task<List<Office>> GetAllOfficesAsync()
         {
             return await _context.Offices.ToListAsync();
         }
 
+        // Получение всех этажей с их офисами
         public async Task<List<Floor>> GetAllFloorsAsync()
         {
-            return await _context.Floors.ToListAsync();
+            return await _context.Floors.Include(f => f.Office).ToListAsync(); // Загружаем этажи с офисами
         }
 
+        // Получение парковочных мест по ID этажа
         public async Task<List<ParkingSpace>> GetParkingSpacesByFloorIDAsync(int floorID)
         {
             return await _context.ParkingSpaces
@@ -33,27 +36,28 @@ namespace BookingSystem.Business.Managers
                 .ToListAsync();
         }
 
+        // Создание бронирования
         public async Task CreateBookingAsync(Booking booking)
         {
             await _context.Bookings.AddAsync(booking);
             await _context.SaveChangesAsync();
         }
 
-        // Метод для добавления рабочего места
+        // Добавление рабочего места
         public async Task AddWorkspaceAsync(Workspace workspace)
         {
             await _context.Workspaces.AddAsync(workspace);
             await _context.SaveChangesAsync();
         }
 
-        // Метод для добавления парковочного места
+        // Добавление парковочного места
         public async Task AddParkingSpaceAsync(ParkingSpace parkingSpace)
         {
             await _context.ParkingSpaces.AddAsync(parkingSpace);
             await _context.SaveChangesAsync();
         }
 
-        // Метод для удаления рабочего места
+        // Удаление рабочего места
         public async Task DeleteWorkspaceAsync(int workspaceId)
         {
             var workspace = await _context.Workspaces.FindAsync(workspaceId);
@@ -64,7 +68,7 @@ namespace BookingSystem.Business.Managers
             }
         }
 
-        // Метод для удаления парковочного места
+        // Удаление парковочного места
         public async Task DeleteParkingSpaceAsync(int parkingSpaceId)
         {
             var parkingSpace = await _context.ParkingSpaces.FindAsync(parkingSpaceId);
@@ -75,30 +79,38 @@ namespace BookingSystem.Business.Managers
             }
         }
 
-        // Метод для получения офиса по ID
+        // Получение офиса по ID
         public async Task<Office> GetOfficeByIdAsync(int officeId)
         {
             return await _context.Offices.FindAsync(officeId);
         }
 
-        // Метод для получения этажа по ID
+        // Получение этажа по ID
         public async Task<Floor> GetFloorByIdAsync(int floorId)
         {
             return await _context.Floors.FindAsync(floorId);
         }
 
-        // Метод для получения рабочего места по ID
+        // Получение рабочего места по ID
         public async Task<Workspace> GetWorkspaceByIdAsync(int workspaceId)
         {
             return await _context.Workspaces.FindAsync(workspaceId);
         }
 
-        // Метод для получения парковочного места по ID
+        // Получение парковочного места по ID
         public async Task<ParkingSpace> GetParkingSpaceByIdAsync(int parkingSpaceId)
         {
             return await _context.ParkingSpaces.FindAsync(parkingSpaceId);
         }
 
-        // Другие методы для управления бронированиями...
+        // Получение этажей по ID офиса
+        public async Task<List<Floor>> GetFloorsByOfficeIdAsync(int officeId)
+        {
+            return await _context.Floors
+                .Where(f => f.OfficeID == officeId)
+                .ToListAsync();
+        }
+
+        
     }
 }

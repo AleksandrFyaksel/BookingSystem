@@ -106,6 +106,36 @@ namespace BookingSystem
             }
         }
 
+
+      
+
+        public async Task AddFloorAsync(Floor floor, string imagePath)
+        {
+            if (File.Exists(imagePath))
+            {
+                // Чтение данных изображения из файла
+                floor.ImageData = await File.ReadAllBytesAsync(imagePath);
+                floor.ImageMimeType = Path.GetExtension(imagePath).ToLower() switch
+                {
+                    ".jpg" => "image/jpeg",
+                    ".jpeg" => "image/jpeg",
+                    ".png" => "image/png",
+                    ".bmp" => "image/bmp",
+                    _ => "application/octet-stream",
+                };
+            }
+            else
+            {
+                // Обработка случая, когда файл не найден
+                throw new FileNotFoundException($"Файл не найден: {imagePath}");
+            }
+
+            await _context.Floors.AddAsync(floor);
+            await _context.SaveChangesAsync();
+        }
+
+
+
         private void DisplayParkingSpaces(List<ParkingSpace> parkingSpaces)
         {
             drawingSurface.Clear(); // Очистка предыдущих визуализаций, если необходимо
@@ -142,27 +172,41 @@ namespace BookingSystem
 
         private void LoadImageForFloor(Floor selectedFloor)
         {
+            // Проверка на null
             if (selectedFloor == null)
             {
                 MessageBox.Show("Выберите этаж перед загрузкой изображения.");
                 return;
             }
 
+            // Проверка наличия данных изображения
             if (selectedFloor.ImageData != null && selectedFloor.ImageData.Length > 0)
             {
-                using (var stream = new MemoryStream(selectedFloor.ImageData))
+                MessageBox.Show($"Загружается изображение для этажа: {selectedFloor.FloorName}"); // Отладочное сообщение
+                try
                 {
-                    var bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.StreamSource = stream;
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.EndInit();
-                    FloorImageControl.Source = bitmap; // Установите изображение в элемент управления Image
+                    using (var stream = new MemoryStream(selectedFloor.ImageData))
+                    {
+                        var bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.StreamSource = stream;
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.EndInit();
+                        bitmap.Freeze(); // Замораживаем изображение для повышения производительности
+                        FloorImageControl.Source = bitmap; // Установите изображение в элемент управления Image
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Обработка ошибок при загрузке изображения
+                    MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}");
                 }
             }
             else
             {
-                FloorImageControl.Source = null; // Очистите изображение, если его нет
+                // Очистка изображения, если его нет
+                MessageBox.Show("Изображение для этого этажа отсутствует."); // Отладочное сообщение
+                FloorImageControl.Source = null;
             }
         }
 
