@@ -136,5 +136,26 @@ namespace BookingSystem.DAL.Repositories
 
             return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
+
+        public async Task<BookingStatus> FirstOrDefaultAsync(Expression<Func<BookingStatus, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await context.BookingStatuses.FirstOrDefaultAsync(predicate);
+        }
+
+        // Реализация метода Remove
+        public void Remove(BookingStatus entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            context.BookingStatuses.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(BookingStatus entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0; // Сохраняем изменения
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace BookingSystem.DAL.Repositories
 
         public EfWorkspaceRepository(BookingContext context)
         {
-            this.context = context;
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
             workspaces = context.Workspaces;
         }
 
@@ -94,6 +94,27 @@ namespace BookingSystem.DAL.Repositories
         }
 
         public void Update(Workspace entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public async Task<Workspace> FirstOrDefaultAsync(Expression<Func<Workspace, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await workspaces.FirstOrDefaultAsync(predicate);
+        }
+
+        // Реализация метода Remove
+        public void Remove(Workspace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            workspaces.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(Workspace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0;
+        }
 
         public IQueryable<Workspace> GetAll(Expression<Func<Workspace, bool>> filter, Expression<Func<Workspace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {

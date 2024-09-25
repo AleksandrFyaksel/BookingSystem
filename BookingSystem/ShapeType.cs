@@ -27,6 +27,7 @@ namespace Drawing
         public ShapeType Type { get; set; }
         public string Label { get; set; }
         public bool IsBooked { get; set; } // Статус бронирования
+        public UIElement VisualElement { get; set; } // Добавлено для хранения ссылки на UIElement
 
         public ShapeVisual(DrawingVisual visual, ShapeType type, string label = "", bool isBooked = false)
         {

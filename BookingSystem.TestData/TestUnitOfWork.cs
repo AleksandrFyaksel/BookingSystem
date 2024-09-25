@@ -1,9 +1,10 @@
-﻿using BookingSystem.Domain.Interfaces;
+﻿using BookingSystem.DAL.Repositories;
 using BookingSystem.Domain.Entities;
+using BookingSystem.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
-using BookingSystem.DAL.Repositories;
 
 namespace BookingSystem.TestData
 {
@@ -70,49 +71,89 @@ namespace BookingSystem.TestData
         public void SaveChanges()
         {
             // Логика для сохранения изменений в тестовом окружении
-            // В данном случае, так как это тестовый репозиторий, можно оставить пустым
         }
 
         public async Task SaveChangesAsync()
         {
-            // Логика для асинхронного сохранения изменений в тестовом окружении
             await Task.CompletedTask; // Заглушка для асинхронного метода
         }
 
         public void Dispose()
         {
             // Освобождение ресурсов, если это необходимо
-            var repositories = new IDisposable[]
-            {
-        (IDisposable)bookingsRepository,
-        (IDisposable)officesRepository,
-        (IDisposable)floorsRepository,
-        (IDisposable)workspacesRepository,
-        (IDisposable)parkingSpacesRepository,
-        (IDisposable)usersRepository,
-        (IDisposable)departmentsRepository,
-        (IDisposable)rolesRepository,
-        (IDisposable)userPasswordsRepository,
-        (IDisposable)bookingStatusesRepository
-            };
-
-            foreach (var repo in repositories)
-            {
-                repo.Dispose(); // Освобождение ресурсов
-            }
-
-            // Вызываем метод Dispose для освобождения управляемых ресурсов
-            GC.SuppressFinalize(this);
         }
 
         public bool HasChanges()
         {
-            throw new NotImplementedException();
+            // Проверяем, есть ли изменения в тестовых репозиториях
+            return bookings.Count > 0 || offices.Count > 0 || floors.Count > 0 ||
+                   workspaces.Count > 0 || parkingSpaces.Count > 0 || users.Count > 0 ||
+                   departments.Count > 0 || roles.Count > 0 || userPasswords.Count > 0 ||
+                   bookingStatuses.Count > 0;
         }
 
         public void Rollback()
         {
-            throw new NotImplementedException();
+            // Логика для отката изменений в тестовом окружении
+            bookings.Clear();
+            offices.Clear();
+            floors.Clear();
+            workspaces.Clear();
+            parkingSpaces.Clear();
+            users.Clear();
+            departments.Clear();
+            roles.Clear();
+            userPasswords.Clear();
+            bookingStatuses.Clear();
+        }
+
+        public IRepository<T> Set<T>() where T : class
+        {
+            // Возвращаем тестовый репозиторий для указанного типа
+            if (typeof(T) == typeof(Booking))
+                return (IRepository<T>)bookingsRepository;
+            if (typeof(T) == typeof(Office))
+                return (IRepository<T>)officesRepository;
+            if (typeof(T) == typeof(Floor))
+                return (IRepository<T>)floorsRepository;
+            if (typeof(T) == typeof(Workspace))
+                return (IRepository<T>)workspacesRepository;
+            if (typeof(T) == typeof(ParkingSpace))
+                return (IRepository<T>)parkingSpacesRepository;
+            if (typeof(T) == typeof(User))
+                return (IRepository<T>)usersRepository;
+            if (typeof(T) == typeof(Department))
+                return (IRepository<T>)departmentsRepository;
+            if (typeof(T) == typeof(Role))
+                return (IRepository<T>)rolesRepository;
+            if (typeof(T) == typeof(UserPassword))
+                return (IRepository<T>)userPasswordsRepository;
+            if (typeof(T) == typeof(BookingStatus))
+                return (IRepository<T>)bookingStatusesRepository;
+
+            throw new NotImplementedException($"Репозиторий для типа {typeof(T).Name} не реализован.");
+        }
+
+        // Добавленный метод для асинхронного поиска
+        public Task<T> FirstOrDefaultAsync<T>(Expression<Func<T, bool>> predicate) where T : class
+        {
+            return Set<T>().FirstOrDefaultAsync(predicate);
+        }
+
+        // Добавленные методы Remove и RemoveAsync
+        public void Remove<T>(T entity) where T : class
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var repository = Set<T>();
+            repository.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync<T>(T entity) where T : class
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var repository = Set<T>();
+            repository.Remove(entity);
+            return Task.FromResult(true);
         }
     }
 }

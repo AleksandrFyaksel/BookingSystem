@@ -71,7 +71,7 @@
                     <RowDefinition Height="21*"/>
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="FloorImageControl" Width="245" Height="224" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.RowSpan="2" />
+                
                 <drawing:DrawingCanvas x:Name="drawingSurface" Background="White" ClipToBounds="True"
                                   MouseLeftButtonDown="drawingSurface_MouseLeftButtonDown"
                                   MouseLeftButtonUp="drawingSurface_MouseLeftButtonUp"

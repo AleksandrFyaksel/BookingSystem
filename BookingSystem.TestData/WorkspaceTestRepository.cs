@@ -22,8 +22,9 @@ namespace BookingSystem.TestData
         {
             if (!workspaces.Any())
             {
-                workspaces.Add(new Workspace { WorkspaceID = 1, Position = "Рабочее место 1", IsAvailable = true, FloorID = 1 });
-                workspaces.Add(new Workspace { WorkspaceID = 2, Position = "Рабочее место 2", IsAvailable = false, FloorID = 1 });
+                // Пример добавления рабочих мест
+                workspaces.Add(new Workspace { WorkspaceID = 1, PositionX = 0, PositionY = 0, IsAvailable = true, FloorID = 1 });
+                workspaces.Add(new Workspace { WorkspaceID = 2, PositionX = 1, PositionY = 1, IsAvailable = false, FloorID = 1 });
             }
         }
 
@@ -37,7 +38,7 @@ namespace BookingSystem.TestData
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             workspaces.Add(entity);
-            await Task.CompletedTask; // Убираем Task.Run для простоты
+            await Task.CompletedTask;
         }
 
         public bool Delete(int id)
@@ -51,7 +52,7 @@ namespace BookingSystem.TestData
             var workspace = Get(id);
             if (workspace == null) return false;
             workspaces.Remove(workspace);
-            return await Task.FromResult(true); // Убираем Task.Run для простоты
+            return await Task.FromResult(true);
         }
 
         public IQueryable<Workspace> Find(Expression<Func<Workspace, bool>> predicate) => workspaces.AsQueryable().Where(predicate);
@@ -60,7 +61,7 @@ namespace BookingSystem.TestData
 
         public async Task<Workspace> GetAsync(int id, params string[] includes)
         {
-            return await Task.FromResult(Get(id, includes)); // Убираем Task.Run для простоты
+            return await Task.FromResult(Get(id, includes));
         }
 
         public IQueryable<Workspace> GetAll() => workspaces.AsQueryable();
@@ -93,7 +94,8 @@ namespace BookingSystem.TestData
             var existingWorkspace = Get(entity.WorkspaceID);
             if (existingWorkspace != null)
             {
-                existingWorkspace.Position = entity.Position;
+                existingWorkspace.PositionX = entity.PositionX;
+                existingWorkspace.PositionY = entity.PositionY;
                 existingWorkspace.IsAvailable = entity.IsAvailable;
                 existingWorkspace.FloorID = entity.FloorID;
             }
@@ -103,17 +105,36 @@ namespace BookingSystem.TestData
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             Update(entity);
-            await Task.CompletedTask; // Убираем Task.Run для простоты
+            await Task.CompletedTask;
         }
 
         public async Task<IEnumerable<Workspace>> FindAsync(Expression<Func<Workspace, bool>> predicate)
         {
-            return await Task.FromResult(workspaces.AsQueryable().Where(predicate).ToList()); // Убираем Task.Run для простоты
+            return await Task.FromResult(workspaces.AsQueryable().Where(predicate).ToList());
         }
 
         public IQueryable<Workspace> GetAll(Expression<Func<Workspace, bool>> filter, Expression<Func<Workspace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<Workspace> FirstOrDefaultAsync(Expression<Func<Workspace, bool>> predicate)
+        {
+            return Task.FromResult(workspaces.AsQueryable().FirstOrDefault(predicate));
+        }
+
+        // Реализация метода Remove
+        public void Remove(Workspace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            workspaces.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(Workspace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
         }
     }
 }

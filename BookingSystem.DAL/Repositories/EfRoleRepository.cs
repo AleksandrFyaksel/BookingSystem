@@ -84,13 +84,6 @@ namespace BookingSystem.DAL.Repositories
             return ascending ? roles.OrderBy(orderBy).AsQueryable() : roles.OrderByDescending(orderBy).AsQueryable();
         }
 
-        // Добавленный метод для реализации интерфейса
-        public IQueryable<Role> GetAll(Expression<Func<Role, object>> orderBy, bool ascending = true)
-        {
-            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
-            return ascending ? roles.OrderBy(orderBy) : roles.OrderByDescending(orderBy);
-        }
-
         public async Task UpdateAsync(Role entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
@@ -102,9 +95,41 @@ namespace BookingSystem.DAL.Repositories
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Role entity) => UpdateAsync(entity).GetAwaiter().GetResult();
 
+        public async Task<Role> FirstOrDefaultAsync(Expression<Func<Role, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await roles.FirstOrDefaultAsync(predicate);
+        }
+
         public IQueryable<Role> GetAll(Expression<Func<Role, bool>> filter, Expression<Func<Role, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+
+            var query = roles.Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        }
+
+        
+        public void Remove(Role entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            roles.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(Role entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0;
+        }
+
+        public IQueryable<Role> GetAll(Expression<Func<Role, object>> orderBy, bool ascending = true)
+        {
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+            return ascending ? roles.OrderBy(orderBy) : roles.OrderByDescending(orderBy);
         }
     }
 }

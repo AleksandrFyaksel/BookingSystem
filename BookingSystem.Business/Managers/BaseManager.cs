@@ -16,11 +16,13 @@ namespace BookingSystem.Business.Managers
         protected readonly IRepository<User> userRepository;
         protected readonly IRepository<UserPassword> userPasswordRepository;
         protected readonly IRepository<Workspace> workspaceRepository;
-        protected readonly IRepository<BookingStatus> bookingStatusRepository; 
+        protected readonly IRepository<BookingStatus> bookingStatusRepository;
 
         public BaseManager(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork)); // Проверка на null
+
+            // Инициализация репозиториев
             bookingRepository = unitOfWork.BookingsRepository;
             departmentRepository = unitOfWork.DepartmentsRepository;
             floorRepository = unitOfWork.FloorsRepository;
@@ -30,7 +32,7 @@ namespace BookingSystem.Business.Managers
             userRepository = unitOfWork.UsersRepository;
             userPasswordRepository = unitOfWork.UserPasswordsRepository;
             workspaceRepository = unitOfWork.WorkspacesRepository;
-            bookingStatusRepository = unitOfWork.BookingStatusesRepository; 
+            bookingStatusRepository = unitOfWork.BookingStatusesRepository;
         }
     }
 }

@@ -109,7 +109,6 @@ namespace BookingSystem.TestData
                 existingBooking.StartDateTime = entity.StartDateTime;
                 existingBooking.EndDateTime = entity.EndDateTime;
                 existingBooking.WorkspaceID = entity.WorkspaceID;
-               
                 existingBooking.UserID = entity.UserID;
                 existingBooking.AdditionalRequirements = entity.AdditionalRequirements;
                 existingBooking.BookingStatusID = entity.BookingStatusID;
@@ -132,6 +131,25 @@ namespace BookingSystem.TestData
         public IQueryable<Booking> GetAll(Expression<Func<Booking, bool>> filter, Expression<Func<Booking, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<Booking> FirstOrDefaultAsync(Expression<Func<Booking, bool>> predicate)
+        {
+            return Task.FromResult(bookings.AsQueryable().FirstOrDefault(predicate));
+        }
+
+        
+        public void Remove(Booking entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            bookings.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(Booking entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
         }
     }
 }

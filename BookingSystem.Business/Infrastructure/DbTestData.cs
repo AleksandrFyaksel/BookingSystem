@@ -31,7 +31,7 @@ namespace BookingSystem.Business.Infrastructure
             {
                 userManager.CreateUser(new User
                 {
-                    Name = name, // Используем свойство Name
+                    Name = name,
                     Email = email,
                     PasswordHash = passwordHash,
                     PhoneNumber = phoneNumber
@@ -41,17 +41,21 @@ namespace BookingSystem.Business.Infrastructure
 
         private static void CreateBookingIfNotExists(BookingManager bookingManager, int userId, int workspaceId, int floorId, DateTime bookingDate, TimeSpan startTime, TimeSpan endTime, string additionalRequirements)
         {
-            // Здесь можно добавить логику для проверки существования бронирования, если это необходимо
-            bookingManager.CreateBooking(new Booking
+            //  проверки существования бронирования
+            var booking = new Booking
             {
                 UserID = userId,
-                WorkspaceID = workspaceId, // Добавлено свойство WorkspaceID
-                
-                BookingDate = bookingDate, // Замените Date на BookingDate
-                StartDateTime = bookingDate.Date + startTime, // Устанавливаем время начала
-                EndDateTime = bookingDate.Date + endTime, // Устанавливаем время окончания
+                WorkspaceID = workspaceId,
+                BookingDate = bookingDate,
+                StartDateTime = bookingDate.Date + startTime,
+                EndDateTime = bookingDate.Date + endTime,
                 AdditionalRequirements = additionalRequirements
-            });
+            };
+
+            // Проверка на существование бронирования
+            //  метод в BookingManager для проверки существующих бронирований
+
+            bookingManager.CreateBookingAsync(booking).Wait(); // Используйте асинхронный метод
         }
     }
 }

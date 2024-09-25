@@ -84,13 +84,6 @@ namespace BookingSystem.DAL.Repositories
             return ascending ? offices.OrderBy(orderBy).AsQueryable() : offices.OrderByDescending(orderBy).AsQueryable();
         }
 
-        // Добавленный метод для реализации интерфейса
-        public IQueryable<Office> GetAll(Expression<Func<Office, object>> orderBy, bool ascending = true)
-        {
-            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
-            return ascending ? offices.OrderBy(orderBy) : offices.OrderByDescending(orderBy);
-        }
-
         public async Task UpdateAsync(Office entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
@@ -102,9 +95,43 @@ namespace BookingSystem.DAL.Repositories
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Office entity) => UpdateAsync(entity).GetAwaiter().GetResult();
 
+        public async Task<Office> FirstOrDefaultAsync(Expression<Func<Office, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await offices.FirstOrDefaultAsync(predicate);
+        }
+
+        // Реализация метода GetAll с фильтром, сортировкой и пагинацией
         public IQueryable<Office> GetAll(Expression<Func<Office, bool>> filter, Expression<Func<Office, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+
+            var query = offices.Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        }
+
+       
+        public void Remove(Office entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            offices.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public IQueryable<Office> GetAll(Expression<Func<Office, object>> orderBy, bool ascending = true)
+        {
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+            return ascending ? offices.OrderBy(orderBy) : offices.OrderByDescending(orderBy);
+        }
+
+
+        public async Task<bool> RemoveAsync(Office entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0;
         }
     }
 }

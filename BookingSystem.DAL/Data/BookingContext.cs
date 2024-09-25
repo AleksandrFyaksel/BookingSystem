@@ -61,16 +61,5 @@ namespace BookingSystem.DAL.Data
                 .HasForeignKey(u => u.DepartmentID)
                 .OnDelete(DeleteBehavior.Restrict);
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                
-           
-                optionsBuilder.UseSqlServer("BookingDatabase",
-                    b => b.MigrationsAssembly("BookingSystem")); 
-            }
-        }
     }
 }

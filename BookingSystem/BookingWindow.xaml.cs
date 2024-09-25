@@ -25,6 +25,7 @@ namespace BookingSystem
         private ImageBrush backgroundBrush;
         private readonly BookingContext _context;
         private readonly BookingManager _bookingManager;
+        private Floor _currentFloor;
 
         public BookingWindow(BookingContext context, BookingManager bookingManager)
         {
@@ -81,7 +82,19 @@ namespace BookingSystem
         {
             if (FloorsComboBox.SelectedItem is Floor selectedFloor)
             {
-                LoadImageForFloor(selectedFloor); // Загружаем изображение для выбранного этажа
+                _currentFloor = selectedFloor; // Сохраняем текущий этаж
+                Console.WriteLine($"Selected Floor ID: {selectedFloor.FloorID}"); // Логирование ID этажа
+
+                // Попробуем загрузить изображение для выбранного этажа
+                try
+                {
+                    await DrawImageOnCanvas(selectedFloor); // Загружаем изображение для выбранного этажа
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}");
+                    return;
+                }
 
                 try
                 {
@@ -90,10 +103,16 @@ namespace BookingSystem
                         .Where(ps => ps.FloorID == selectedFloor.FloorID)
                         .ToListAsync();
 
+                    // Логирование количества парковочных мест
+                    Console.WriteLine($"Parking Spaces Count: {parkingSpaces.Count}");
+
                     // Получаем рабочие места для выбранного этажа
                     var workspaces = await _context.Workspaces
                         .Where(ws => ws.FloorID == selectedFloor.FloorID)
                         .ToListAsync();
+
+                    // Логирование количества рабочих мест
+                    Console.WriteLine($"Workspaces Count: {workspaces.Count}");
 
                     // Отображаем парковочные места и рабочие места на графической поверхности
                     DisplayParkingSpaces(parkingSpaces);
@@ -103,54 +122,6 @@ namespace BookingSystem
                 {
                     MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}");
                 }
-            }
-        }
-
-
-      
-
-        public async Task AddFloorAsync(Floor floor, string imagePath)
-        {
-            if (File.Exists(imagePath))
-            {
-                // Чтение данных изображения из файла
-                floor.ImageData = await File.ReadAllBytesAsync(imagePath);
-                floor.ImageMimeType = Path.GetExtension(imagePath).ToLower() switch
-                {
-                    ".jpg" => "image/jpeg",
-                    ".jpeg" => "image/jpeg",
-                    ".png" => "image/png",
-                    ".bmp" => "image/bmp",
-                    _ => "application/octet-stream",
-                };
-            }
-            else
-            {
-                // Обработка случая, когда файл не найден
-                throw new FileNotFoundException($"Файл не найден: {imagePath}");
-            }
-
-            await _context.Floors.AddAsync(floor);
-            await _context.SaveChangesAsync();
-        }
-
-
-
-        private void DisplayParkingSpaces(List<ParkingSpace> parkingSpaces)
-        {
-            drawingSurface.Clear(); // Очистка предыдущих визуализаций, если необходимо
-
-            foreach (var space in parkingSpaces)
-            {
-                DrawingVisual visual = new DrawingVisual();
-                ShapeType shapeType = ShapeType.Circle; // Указываем, что это парковочное место
-                ShapeVisual shapeVisual = new ShapeVisual(visual, shapeType, space.Label, space.IsAvailable);
-
-                // Обновляем цвет фигуры в зависимости от статуса доступности
-                shapeVisual.UpdateVisualColor();
-
-                // Добавляем визуализацию на поверхность
-                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label);
             }
         }
 
@@ -165,48 +136,122 @@ namespace BookingSystem
                 // Обновляем цвет фигуры в зависимости от статуса доступности
                 shapeVisual.UpdateVisualColor();
 
-                // Добавляем визуализацию на поверхность
-                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label);
+                // Устанавливаем позицию на основе PositionX и PositionY из базы данных
+                Point position = new Point(workspace.PositionX, workspace.PositionY);
+
+                // Добавляем визуализацию на поверхность с учетом позиции
+                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label, position);
+                shapeVisual.VisualElement = drawingSurface.GetVisualElement(shapeVisual.Visual); // Сохраняем ссылку на UIElement
             }
         }
 
-        private void LoadImageForFloor(Floor selectedFloor)
+        private async Task DrawImageOnCanvas(Floor selectedFloor)
         {
-            // Проверка на null
             if (selectedFloor == null)
             {
-                MessageBox.Show("Выберите этаж перед загрузкой изображения.");
+                MessageBox.Show("Выберите этаж.");
                 return;
             }
 
-            // Проверка наличия данных изображения
-            if (selectedFloor.ImageData != null && selectedFloor.ImageData.Length > 0)
+            string imagePath = await _bookingManager.GetFloorImagePathAsync(selectedFloor.FloorID);
+
+            // Проверка существования файла
+            if (File.Exists(imagePath))
             {
-                MessageBox.Show($"Загружается изображение для этажа: {selectedFloor.FloorName}"); // Отладочное сообщение
-                try
+                backgroundBrush = new ImageBrush(new BitmapImage(new Uri(imagePath)));
+                drawingSurface.Background = backgroundBrush;
+            }
+            else
+            {
+                MessageBox.Show("Изображение не найдено.");
+            }
+        }
+
+        private void DisplayParkingSpaces(List<ParkingSpace> parkingSpaces)
+        {
+            drawingSurface.Clear(); // Очистка предыдущих визуализаций, если необходимо
+
+            foreach (var space in parkingSpaces)
+            {
+                DrawingVisual visual = new DrawingVisual();
+                ShapeType shapeType = ShapeType.Circle; // Указываем, что это парковочное место
+                ShapeVisual shapeVisual = new ShapeVisual(visual, shapeType, space.Label, space.IsAvailable);
+
+                // Обновляем цвет фигуры в зависимости от статуса доступности
+                shapeVisual.UpdateVisualColor();
+
+                // Устанавливаем позицию на основе PositionX и PositionY из базы данных
+                Point position = new Point(space.PositionX, space.PositionY);
+
+                // Добавляем визуализацию на поверхность с учетом позиции
+                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label, position);
+                shapeVisual.VisualElement = drawingSurface.GetVisualElement(shapeVisual.Visual); // Сохраняем ссылку на UIElement
+            }
+        }
+
+        private async void drawingSurface_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Point pointClicked = e.GetPosition(drawingSurface);
+            ShapeVisual shapeVisual = drawingSurface.GetVisual(pointClicked);
+
+            if (cmdDelete.IsChecked == true && shapeVisual != null)
+            {
+                // Удаляем фигуру с холста
+                drawingSurface.DeleteVisual(shapeVisual.VisualElement); // Используем VisualElement
+
+                // Удаляем соответствующую запись из базы данных
+                if (shapeVisual.Type == ShapeType.Circle)
                 {
-                    using (var stream = new MemoryStream(selectedFloor.ImageData))
+                    var parkingSpace = await _context.ParkingSpaces
+                        .FirstOrDefaultAsync(ps => ps.Label == shapeVisual.Label);
+                    if (parkingSpace != null)
                     {
-                        var bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.StreamSource = stream;
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.EndInit();
-                        bitmap.Freeze(); // Замораживаем изображение для повышения производительности
-                        FloorImageControl.Source = bitmap; // Установите изображение в элемент управления Image
+                        _context.ParkingSpaces.Remove(parkingSpace);
+                        await _context.SaveChangesAsync(); // Сохраняем изменения в базе данных
+                        MessageBox.Show($"Парковочное место '{shapeVisual.Label}' удалено.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Парковочное место не найдено в базе данных.");
                     }
                 }
-                catch (Exception ex)
+                else if (shapeVisual.Type == ShapeType.Square)
                 {
-                    // Обработка ошибок при загрузке изображения
-                    MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}");
+                    var workspace = await _context.Workspaces
+                        .FirstOrDefaultAsync(ws => ws.Label == shapeVisual.Label);
+                    if (workspace != null)
+                    {
+                        _context.Workspaces.Remove(workspace);
+                        await _context.SaveChangesAsync(); // Сохраняем изменения в базе данных
+                        MessageBox.Show($"Рабочее место '{shapeVisual.Label}' удалено.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Рабочее место не найдено в базе данных.");
+                    }
+                }
+
+                return; // Выход из метода после удаления
+            }
+
+            if (shapeVisual != null)
+            {
+                // Пример: Отображаем информацию о фигуре
+                MessageBox.Show($"Вы выбрали фигуру: {shapeVisual.Label}, Тип: {shapeVisual.Type}");
+
+                // Переключение режима перемещения
+                if (cmdSelectMove.IsChecked == true)
+                {
+                    // Устанавливаем фигуру для перемещения
+                    clickOffset = shapeVisual.VisualElement.TranslatePoint(new Point(0, 0), drawingSurface) - pointClicked;
+                    isDragging = true;
+                    selectedVisual = shapeVisual;
+                    drawingSurface.CaptureMouse(); // Захватываем мышь для перетаскивания
                 }
             }
             else
             {
-                // Очистка изображения, если его нет
-                MessageBox.Show("Изображение для этого этажа отсутствует."); // Отладочное сообщение
-                FloorImageControl.Source = null;
+                HandleShapeCreation(pointClicked);
             }
         }
 
@@ -223,8 +268,16 @@ namespace BookingSystem
                 try
                 {
                     string filePath = openFileDialog.FileName;
-                    backgroundBrush = new ImageBrush(new BitmapImage(new Uri(filePath)));
-                    drawingSurface.Background = backgroundBrush;
+                    // Проверка, является ли файл изображением
+                    if (File.Exists(filePath))
+                    {
+                        backgroundBrush = new ImageBrush(new BitmapImage(new Uri(filePath)));
+                        drawingSurface.Background = backgroundBrush;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Выбранный файл не существует.");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -239,48 +292,6 @@ namespace BookingSystem
             backgroundBrush = null;
         }
 
-        private string GetMimeType(string filePath)
-        {
-            var extension = System.IO.Path.GetExtension(filePath).ToLowerInvariant();
-            return extension switch
-            {
-                ".jpg" => "image/jpeg",
-                ".jpeg" => "image/jpeg",
-                ".png" => "image/png",
-                _ => "application/octet-stream",
-            };
-        }
-
-        private void drawingSurface_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Point pointClicked = e.GetPosition(drawingSurface);
-            ShapeVisual shapeVisual = drawingSurface.GetVisual(pointClicked);
-
-            if (cmdDelete.IsChecked == true && shapeVisual != null)
-            {
-                drawingSurface.DeleteVisual(shapeVisual.Visual);
-                return;
-            }
-
-            if (shapeVisual != null)
-            {
-                BookingForm bookingForm = new BookingForm(_bookingManager);
-                if (bookingForm.ShowDialog() == true)
-                {
-                    string bookingDate = bookingForm.BookingDate.ToString("d");
-                    string startTime = bookingForm.StartTime;
-                    string endTime = bookingForm.EndTime;
-                    string additionalRequirements = bookingForm.AdditionalRequirements;
-
-                    MessageBox.Show($"Бронирование на {bookingDate} с {startTime} до {endTime}.\nДополнительные требования: {additionalRequirements}");
-                }
-            }
-            else
-            {
-                HandleShapeCreation(pointClicked);
-            }
-        }
-
         private void HandleShapeCreation(Point pointClicked)
         {
             if (cmdAdd.IsChecked == true)
@@ -288,24 +299,20 @@ namespace BookingSystem
                 string label = PromptForLabel();
                 DrawingVisual visual = new DrawingVisual();
                 DrawSquare(visual, pointClicked, false);
-                drawingSurface.AddVisual(visual, ShapeType.Square, label);
+                ShapeVisual shapeVisual = new ShapeVisual(visual, ShapeType.Square, label);
+                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label, pointClicked);
+                shapeVisual.VisualElement = drawingSurface.GetVisualElement(shapeVisual.Visual); // Сохраняем ссылку на UIElement
+                shapeVisual.UpdateVisualColor(); // Обновляем цвет фигуры
             }
             else if (cmdAddCircle.IsChecked == true)
             {
                 string label = PromptForLabel();
                 DrawingVisual visual = new DrawingVisual();
                 DrawCircle(visual, pointClicked, false);
-                drawingSurface.AddVisual(visual, ShapeType.Circle, label);
-            }
-            else if (cmdSelectMove.IsChecked == true)
-            {
-                ShapeVisual shapeToMove = drawingSurface.GetVisual(pointClicked);
-                if (shapeToMove != null)
-                {
-                    clickOffset = shapeToMove.Visual.ContentBounds.TopLeft - pointClicked;
-                    isDragging = true;
-                    selectedVisual = shapeToMove;
-                }
+                ShapeVisual shapeVisual = new ShapeVisual(visual, ShapeType.Circle, label);
+                drawingSurface.AddVisual(shapeVisual.Visual, shapeVisual.Type, shapeVisual.Label, pointClicked);
+                shapeVisual.VisualElement = drawingSurface.GetVisualElement(shapeVisual.Visual); // Сохраняем ссылку на UIElement
+                shapeVisual.UpdateVisualColor(); // Обновляем цвет фигуры
             }
         }
 
@@ -313,6 +320,7 @@ namespace BookingSystem
         {
             isDragging = false;
             selectedVisual = null;
+            drawingSurface.ReleaseMouseCapture(); // Освобождаем захват мыши
         }
 
         private void drawingSurface_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -322,7 +330,7 @@ namespace BookingSystem
 
             if (shapeVisual != null)
             {
-                clickOffset = shapeVisual.Visual.ContentBounds.TopLeft - pointClicked;
+                clickOffset = shapeVisual.VisualElement.TranslatePoint(new Point(0, 0), drawingSurface) - pointClicked;
                 isDragging = true;
                 selectedVisual = shapeVisual;
                 drawingSurface.CaptureMouse();
@@ -349,6 +357,10 @@ namespace BookingSystem
                 {
                     DrawCircle(selectedVisual.Visual, pointDragged, true);
                 }
+
+                // Обновляем позицию UIElement
+                Canvas.SetLeft(selectedVisual.VisualElement, pointDragged.X);
+                Canvas.SetTop(selectedVisual.VisualElement, pointDragged.Y);
             }
         }
 

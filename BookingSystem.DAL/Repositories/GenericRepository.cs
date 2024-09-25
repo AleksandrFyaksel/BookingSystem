@@ -1,22 +1,19 @@
-﻿using BookingSystem.DAL.Data;
+﻿using System.Linq.Expressions;
+using System.Threading.Tasks;
+using BookingSystem.DAL.Data;
 using BookingSystem.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace BookingSystem.DAL.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IRepository<T> where T : class
     {
         private readonly BookingContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public Repository(BookingContext context)
+        public GenericRepository(BookingContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _context = context;
             _dbSet = context.Set<T>();
         }
 
@@ -33,17 +30,23 @@ namespace BookingSystem.DAL.Repositories
         public bool Delete(int id)
         {
             var entity = _dbSet.Find(id);
-            if (entity == null) return false;
-            _dbSet.Remove(entity);
-            return true;
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+                return true;
+            }
+            return false;
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
-            if (entity == null) return false;
-            _dbSet.Remove(entity);
-            return true;
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+                return true;
+            }
+            return false;
         }
 
         public IQueryable<T> Find(Expression<Func<T, bool>> predicate)
@@ -51,14 +54,24 @@ namespace BookingSystem.DAL.Repositories
             return _dbSet.Where(predicate);
         }
 
-        public T Get(int id)
+        public T Get(int id, params string[] includes)
         {
-            return _dbSet.Find(id);
+            IQueryable<T> query = _dbSet;
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query.FirstOrDefault(e => EF.Property<int>(e, "Id") == id); 
         }
 
-        public async Task<T> GetAsync(int id)
+        public async Task<T> GetAsync(int id, params string[] includes)
         {
-            return await _dbSet.FindAsync(id);
+            IQueryable<T> query = _dbSet;
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id); // Предполагается, что Id - это свойство
         }
 
         public IQueryable<T> GetAll()
@@ -91,6 +104,7 @@ namespace BookingSystem.DAL.Repositories
         public async Task UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
+            await Task.CompletedTask; 
         }
 
         public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
@@ -98,27 +112,6 @@ namespace BookingSystem.DAL.Repositories
             return await _dbSet.Where(predicate).ToListAsync();
         }
 
-        public T Get(int id, params string[] includes)
-        {
-            IQueryable<T> query = _dbSet;
-            foreach (var include in includes)
-            {
-                query = query.Include(include);
-            }
-            return query.FirstOrDefault(e => EF.Property<int>(e, "ParkingSpaceID") == id);
-        }
-
-        public async Task<T> GetAsync(int id, params string[] includes)
-        {
-            IQueryable<T> query = _dbSet;
-            foreach (var include in includes)
-            {
-                query = query.Include(include);
-            }
-            return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "ParkingSpaceID") == id);
-        }
-
-        // New method to get the first entity that matches a predicate asynchronously
         public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));

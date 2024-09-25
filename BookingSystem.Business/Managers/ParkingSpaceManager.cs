@@ -2,7 +2,6 @@
 using BookingSystem.Domain.Entities;
 using BookingSystem.Domain.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BookingSystem.Business.Managers
 {
@@ -16,6 +15,7 @@ namespace BookingSystem.Business.Managers
 
         public ParkingSpace CreateParkingSpace(ParkingSpace parkingSpace)
         {
+            if (parkingSpace == null) throw new ArgumentNullException(nameof(parkingSpace)); // Проверка на null
             parkingSpaceRepository.Add(parkingSpace);
             unitOfWork.SaveChanges();
             return parkingSpace;
@@ -31,6 +31,7 @@ namespace BookingSystem.Business.Managers
 
         public void UpdateParkingSpace(ParkingSpace parkingSpace)
         {
+            if (parkingSpace == null) throw new ArgumentNullException(nameof(parkingSpace)); // Проверка на null
             parkingSpaceRepository.Update(parkingSpace);
             unitOfWork.SaveChanges();
         }

@@ -22,8 +22,8 @@ namespace BookingSystem.TestData
         {
             if (!parkingSpaces.Any())
             {
-                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 1, Position = "Парковка 1", IsAvailable = true, FloorID = 1 });
-                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 2, Position = "Парковка 2", IsAvailable = false, FloorID = 1 });
+                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 1, PositionX = 0, PositionY = 0, IsAvailable = true, FloorID = 1 });
+                parkingSpaces.Add(new ParkingSpace { ParkingSpaceID = 2, PositionX = 1, PositionY = 1, IsAvailable = false, FloorID = 1 });
             }
         }
 
@@ -93,7 +93,8 @@ namespace BookingSystem.TestData
             var existingParkingSpace = Get(entity.ParkingSpaceID);
             if (existingParkingSpace != null)
             {
-                existingParkingSpace.Position = entity.Position;
+                existingParkingSpace.PositionX = entity.PositionX;
+                existingParkingSpace.PositionY = entity.PositionY;
                 existingParkingSpace.IsAvailable = entity.IsAvailable;
             }
         }
@@ -113,6 +114,25 @@ namespace BookingSystem.TestData
         public IQueryable<ParkingSpace> GetAll(Expression<Func<ParkingSpace, bool>> filter, Expression<Func<ParkingSpace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<ParkingSpace> FirstOrDefaultAsync(Expression<Func<ParkingSpace, bool>> predicate)
+        {
+            return Task.FromResult(parkingSpaces.AsQueryable().FirstOrDefault(predicate));
+        }
+
+        
+        public void Remove(ParkingSpace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            parkingSpaces.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(ParkingSpace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
         }
     }
 }

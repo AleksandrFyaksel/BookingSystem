@@ -1,6 +1,6 @@
 ﻿using BookingSystem.Business.Managers;
 using BookingSystem.DAL.Data;
-using BookingSystem.DAL.Repositories; 
+using BookingSystem.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,10 +20,10 @@ namespace BookingSystem
         {
             // Регистрация служб
             services.AddDbContext<BookingContext>(options =>
-                options.UseSqlServer(_configuration.GetConnectionString("BookingDatabase"))); // Используйте строку подключения из конфигурации
+                options.UseSqlServer(_configuration.GetConnectionString("BookingDatabase"))); 
 
             // Регистрация UnitOfWork
-            services.AddScoped<IUnitOfWork>(provider => new EFUnitOfWork(_configuration.GetConnectionString("BookingDatabase"))); // Измените на EFUnitOfWork
+            services.AddScoped<IUnitOfWork, EFUnitOfWork>(); // Регистрация UnitOfWork
 
             services.AddScoped<BookingManager>(); // Регистрация менеджера бронирования
             services.AddTransient<MainWindow>(); // Регистрация главного окна

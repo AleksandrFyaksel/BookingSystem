@@ -48,7 +48,7 @@ namespace BookingSystem.TestData
                 throw new InvalidOperationException("Отдел с таким идентификатором уже существует.");
             }
             departments.Add(entity);
-            await Task.CompletedTask; 
+            await Task.CompletedTask;
         }
 
         public bool Delete(int id)
@@ -63,7 +63,7 @@ namespace BookingSystem.TestData
             var department = Get(id);
             if (department == null) return false;
             departments.Remove(department);
-            return await Task.FromResult(true); 
+            return await Task.FromResult(true);
         }
 
         public IQueryable<Department> Find(Expression<Func<Department, bool>> predicate) => departments.AsQueryable().Where(predicate);
@@ -72,7 +72,7 @@ namespace BookingSystem.TestData
 
         public async Task<Department> GetAsync(int id, params string[] includes)
         {
-            return await Task.FromResult(Get(id, includes)); 
+            return await Task.FromResult(Get(id, includes));
         }
 
         public IQueryable<Department> GetAll() => departments.AsQueryable();
@@ -108,17 +108,36 @@ namespace BookingSystem.TestData
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             Update(entity);
-            await Task.CompletedTask; 
+            await Task.CompletedTask;
         }
 
         public async Task<IEnumerable<Department>> FindAsync(Expression<Func<Department, bool>> predicate)
         {
-            return await Task.FromResult(departments.AsQueryable().Where(predicate).ToList()); // Убираем Task.Run для простоты
+            return await Task.FromResult(departments.AsQueryable().Where(predicate).ToList());
         }
 
         public IQueryable<Department> GetAll(Expression<Func<Department, bool>> filter, Expression<Func<Department, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<Department> FirstOrDefaultAsync(Expression<Func<Department, bool>> predicate)
+        {
+            return Task.FromResult(departments.AsQueryable().FirstOrDefault(predicate));
+        }
+
+        // Реализация метода Remove
+        public void Remove(Department entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            departments.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(Department entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
         }
     }
 }

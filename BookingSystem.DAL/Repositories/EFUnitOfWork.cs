@@ -3,74 +3,70 @@ using BookingSystem.Domain.Entities;
 using BookingSystem.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace BookingSystem.DAL.Repositories
 {
     public class EFUnitOfWork : IUnitOfWork, IDisposable
     {
-        private readonly BookingContext context;
+        private readonly BookingContext _context;
 
         // Репозитории
-        private IRepository<Booking> bookingsRepository;
-        private IRepository<Department> departmentsRepository;
-        private IRepository<Floor> floorsRepository;
-        private IRepository<Office> officesRepository;
-        private IRepository<ParkingSpace> parkingSpacesRepository;
-        private IRepository<Role> rolesRepository;
-        private IRepository<User> usersRepository;
-        private IRepository<UserPassword> userPasswordsRepository;
-        private IRepository<Workspace> workspacesRepository;
-        private IRepository<BookingStatus> bookingStatusesRepository;
+        private IRepository<Booking> _bookingsRepository;
+        private IRepository<Department> _departmentsRepository;
+        private IRepository<Floor> _floorsRepository;
+        private IRepository<Office> _officesRepository;
+        private IRepository<ParkingSpace> _parkingSpacesRepository;
+        private IRepository<Role> _rolesRepository;
+        private IRepository<User> _usersRepository;
+        private IRepository<UserPassword> _userPasswordsRepository;
+        private IRepository<Workspace> _workspacesRepository;
+        private IRepository<BookingStatus> _bookingStatusesRepository;
 
-        public EFUnitOfWork(string connectionString)
+        public EFUnitOfWork(BookingContext context)
         {
-            var options = new DbContextOptionsBuilder<BookingContext>()
-                .UseSqlServer(connectionString)
-                .Options;
-            context = new BookingContext(options);
-            context.Database.EnsureCreated();
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public IRepository<Booking> BookingsRepository =>
-            bookingsRepository ??= new EfBookingRepository(context);
+            _bookingsRepository ??= new EfBookingRepository(_context);
 
         public IRepository<Department> DepartmentsRepository =>
-            departmentsRepository ??= new EfDepartmentRepository(context);
+            _departmentsRepository ??= new EfDepartmentRepository(_context);
 
         public IRepository<Floor> FloorsRepository =>
-            floorsRepository ??= new EfFloorRepository(context);
+            _floorsRepository ??= new EfFloorRepository(_context);
 
         public IRepository<Office> OfficesRepository =>
-            officesRepository ??= new EfOfficeRepository(context);
+            _officesRepository ??= new EfOfficeRepository(_context);
 
         public IRepository<ParkingSpace> ParkingSpacesRepository =>
-            parkingSpacesRepository ??= new EfParkingSpaceRepository(context);
+            _parkingSpacesRepository ??= new EfParkingSpaceRepository(_context);
 
         public IRepository<Role> RolesRepository =>
-            rolesRepository ??= new EfRoleRepository(context);
+            _rolesRepository ??= new EfRoleRepository(_context);
 
         public IRepository<User> UsersRepository =>
-            usersRepository ??= new EfUserRepository(context);
+            _usersRepository ??= new EfUserRepository(_context);
 
         public IRepository<UserPassword> UserPasswordsRepository =>
-            userPasswordsRepository ??= new EfUserPasswordRepository(context);
+            _userPasswordsRepository ??= new EfUserPasswordRepository(_context);
 
         public IRepository<Workspace> WorkspacesRepository =>
-            workspacesRepository ??= new EfWorkspaceRepository(context);
+            _workspacesRepository ??= new EfWorkspaceRepository(_context);
 
         public IRepository<BookingStatus> BookingStatusesRepository =>
-            bookingStatusesRepository ??= new EfBookingStatusRepository(context);
+            _bookingStatusesRepository ??= new EfBookingStatusRepository(_context);
 
         public void SaveChanges()
         {
             try
             {
-                context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbUpdateException ex)
             {
-                // Обработка исключения, например, логирование
                 throw new Exception("Ошибка при сохранении изменений в базе данных.", ex);
             }
         }
@@ -79,30 +75,39 @@ namespace BookingSystem.DAL.Repositories
         {
             try
             {
-                await context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateException ex)
             {
-                // Обработка исключения, например, логирование
                 throw new Exception("Ошибка при асинхронном сохранении изменений в базе данных.", ex);
             }
         }
 
         public void Dispose()
         {
-            context?.Dispose();
+            _context?.Dispose();
         }
 
         public bool HasChanges()
         {
-            return context.ChangeTracker.HasChanges();
+            return _context.ChangeTracker.HasChanges();
         }
 
         public void Rollback()
         {
-            // Если вы используете транзакции, здесь можно реализовать откат
-            // Например, если вы используете TransactionScope или DbContext.Database.BeginTransaction()
+            
             throw new NotImplementedException("Rollback не реализован.");
+        }
+
+        public IRepository<T> Set<T>() where T : class
+        {
+           
+            return new GenericRepository<T>(_context);
+        }
+
+        public async Task<Booking> GetBookingByConditionAsync(Expression<Func<Booking, bool>> predicate)
+        {
+            return await BookingsRepository.FirstOrDefaultAsync(predicate);
         }
     }
 }

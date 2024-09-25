@@ -2,7 +2,6 @@
 using BookingSystem.Domain.Entities;
 using BookingSystem.Domain.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BookingSystem.Business.Managers
 {
@@ -16,6 +15,7 @@ namespace BookingSystem.Business.Managers
 
         public Workspace CreateWorkspace(Workspace workspace)
         {
+            if (workspace == null) throw new ArgumentNullException(nameof(workspace)); // Проверка на null
             workspaceRepository.Add(workspace);
             unitOfWork.SaveChanges();
             return workspace;
@@ -31,6 +31,7 @@ namespace BookingSystem.Business.Managers
 
         public void UpdateWorkspace(Workspace workspace)
         {
+            if (workspace == null) throw new ArgumentNullException(nameof(workspace)); // Проверка на null
             workspaceRepository.Update(workspace);
             unitOfWork.SaveChanges();
         }

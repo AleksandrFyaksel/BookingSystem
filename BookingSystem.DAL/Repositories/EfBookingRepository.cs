@@ -107,5 +107,25 @@ namespace BookingSystem.DAL.Repositories
         public void Add(Booking entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Booking entity) => UpdateAsync(entity).GetAwaiter().GetResult();
+
+        public async Task<Booking> FirstOrDefaultAsync(Expression<Func<Booking, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await bookings.FirstOrDefaultAsync(predicate);
+        }
+
+      
+        public void Remove(Booking entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            bookings.Remove(entity);
+        }
+
+        public async Task<bool> RemoveAsync(Booking entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0; 
+        }
     }
 }

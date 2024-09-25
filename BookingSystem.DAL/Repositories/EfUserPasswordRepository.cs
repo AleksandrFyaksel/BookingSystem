@@ -78,7 +78,6 @@ namespace BookingSystem.DAL.Repositories
             return userPasswords.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
-        // Добавленный метод для реализации интерфейса
         public IQueryable<UserPassword> GetAll(Expression<Func<UserPassword, object>> orderBy, bool ascending = true)
         {
             if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
@@ -96,9 +95,35 @@ namespace BookingSystem.DAL.Repositories
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(UserPassword entity) => UpdateAsync(entity).GetAwaiter().GetResult();
 
+        public async Task<UserPassword> FirstOrDefaultAsync(Expression<Func<UserPassword, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await userPasswords.FirstOrDefaultAsync(predicate);
+        }
+
+        // Реализация метода Remove
+        public void Remove(UserPassword entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            userPasswords.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(UserPassword entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0;
+        }
+
         public IQueryable<UserPassword> GetAll(Expression<Func<UserPassword, bool>> filter, Expression<Func<UserPassword, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+
+            var query = userPasswords.Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
     }
 }

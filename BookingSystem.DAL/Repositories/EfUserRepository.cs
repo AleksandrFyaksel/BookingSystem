@@ -82,7 +82,6 @@ namespace BookingSystem.DAL.Repositories
             return users.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
-        // Добавленный метод для реализации интерфейса
         public IQueryable<User> GetAll(Expression<Func<User, object>> orderBy, bool ascending = true)
         {
             if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
@@ -98,9 +97,35 @@ namespace BookingSystem.DAL.Repositories
 
         public void Update(User entity) => UpdateAsync(entity).GetAwaiter().GetResult();
 
+        public async Task<User> FirstOrDefaultAsync(Expression<Func<User, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await users.FirstOrDefaultAsync(predicate);
+        }
+
+        // Реализация метода Remove
+        public void Remove(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            users.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0;
+        }
+
         public IQueryable<User> GetAll(Expression<Func<User, bool>> filter, Expression<Func<User, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+
+            var query = users.Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
     }
 }

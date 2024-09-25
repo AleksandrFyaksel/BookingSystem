@@ -115,5 +115,24 @@ namespace BookingSystem.TestData
 
             return bookingStatuses.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsQueryable();
         }
+
+        public Task<BookingStatus> FirstOrDefaultAsync(Expression<Func<BookingStatus, bool>> predicate)
+        {
+            return Task.FromResult(bookingStatuses.AsQueryable().FirstOrDefault(predicate));
+        }
+
+        // Реализация метода Remove
+        public void Remove(BookingStatus entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            bookingStatuses.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(BookingStatus entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
+        }
     }
 }

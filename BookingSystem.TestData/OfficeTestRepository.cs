@@ -117,5 +117,24 @@ namespace BookingSystem.TestData
         {
             throw new NotImplementedException();
         }
+
+        public Task<Office> FirstOrDefaultAsync(Expression<Func<Office, bool>> predicate)
+        {
+            return Task.FromResult(offices.AsQueryable().FirstOrDefault(predicate));
+        }
+
+       
+        public void Remove(Office entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            offices.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(Office entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
+        }
     }
 }

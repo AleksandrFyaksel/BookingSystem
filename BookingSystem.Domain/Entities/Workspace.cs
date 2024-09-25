@@ -13,7 +13,8 @@ namespace BookingSystem.Domain.Entities
         public int FloorID { get; set; }  // Идентификатор этажа, на котором находится рабочее место
 
         public string Label { get; set; }  // Название рабочего места
-        public string Position { get; set; }  // Позиция рабочего места
+        public int PositionX { get; set; }  // Позиция рабочего места по оси X
+        public int PositionY { get; set; }  // Позиция рабочего места по оси Y
         public bool IsAvailable { get; set; }  // Статус доступности (свободно/занято)
 
         // Навигационные свойства

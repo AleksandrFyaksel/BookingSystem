@@ -78,17 +78,16 @@ namespace BookingSystem.DAL.Repositories
             return parkingSpaces.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
-        public IQueryable<ParkingSpace> GetAll(Func<ParkingSpace, object> orderBy, bool ascending = true)
-        {
-            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
-            return ascending ? parkingSpaces.OrderBy(orderBy).AsQueryable() : parkingSpaces.OrderByDescending(orderBy).AsQueryable();
-        }
-
-        // Добавленный метод для реализации интерфейса
         public IQueryable<ParkingSpace> GetAll(Expression<Func<ParkingSpace, object>> orderBy, bool ascending = true)
         {
             if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
             return ascending ? parkingSpaces.OrderBy(orderBy) : parkingSpaces.OrderByDescending(orderBy);
+        }
+
+        public void Update(ParkingSpace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            parkingSpaces.Update(entity);
         }
 
         public async Task UpdateAsync(ParkingSpace entity)
@@ -100,11 +99,37 @@ namespace BookingSystem.DAL.Repositories
 
         public void Add(ParkingSpace entity) => AddAsync(entity).GetAwaiter().GetResult();
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
-        public void Update(ParkingSpace entity) => UpdateAsync(entity).GetAwaiter().GetResult();
 
+        public async Task<ParkingSpace> FirstOrDefaultAsync(Expression<Func<ParkingSpace, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await parkingSpaces.FirstOrDefaultAsync(predicate);
+        }
+
+        // Реализация метода GetAll с фильтром, сортировкой и пагинацией
         public IQueryable<ParkingSpace> GetAll(Expression<Func<ParkingSpace, bool>> filter, Expression<Func<ParkingSpace, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            if (filter == null) throw new ArgumentNullException(nameof(filter));
+            if (orderBy == null) throw new ArgumentNullException(nameof(orderBy));
+
+            var query = parkingSpaces.Where(filter);
+            query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        }
+
+        // Реализация метода Remove
+        public void Remove(ParkingSpace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            parkingSpaces.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(ParkingSpace entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0;
         }
     }
 }

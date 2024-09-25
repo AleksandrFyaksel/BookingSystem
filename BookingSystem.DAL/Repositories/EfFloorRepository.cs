@@ -105,9 +105,30 @@ namespace BookingSystem.DAL.Repositories
         public bool Delete(int id) => DeleteAsync(id).GetAwaiter().GetResult();
         public void Update(Floor entity) => UpdateAsync(entity).GetAwaiter().GetResult();
 
+        public async Task<Floor> FirstOrDefaultAsync(Expression<Func<Floor, bool>> predicate)
+        {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return await floors.FirstOrDefaultAsync(predicate);
+        }
+
         public IQueryable<Floor> GetAll(Expression<Func<Floor, bool>> filter, Expression<Func<Floor, object>> orderBy, bool ascending = true, int pageNumber = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
+        }
+
+        
+        public void Remove(Floor entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            floors.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public async Task<bool> RemoveAsync(Floor entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return await context.SaveChangesAsync() > 0; 
         }
     }
 }

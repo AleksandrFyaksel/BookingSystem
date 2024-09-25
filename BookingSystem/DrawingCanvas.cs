@@ -1,93 +1,215 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
-using System.Linq;
+using System.Windows.Shapes;
 
 namespace Drawing
 {
-    public class DrawingCanvas : Canvas //  Canvas,  Background и другие свойства
+    public class DrawingCanvas : Canvas
     {
-        private readonly List<ShapeVisual> visuals = new List<ShapeVisual>();
+        private bool isDragging = false;
+        private Point clickPosition;
+        private UIElement selectedShape; // Хранит ссылку на выбранную фигуру
 
-        protected override Visual GetVisualChild(int index)
+        // Метод для добавления круга
+        public void AddCircle(Point position)
         {
-            if (index < 0 || index >= visuals.Count)
-                throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
-            return visuals[index].Visual;
+            Ellipse circle = CreateEllipse(position);
+            this.Children.Add(circle);
+            SubscribeToMouseEvents(circle);
         }
 
-        protected override int VisualChildrenCount => visuals.Count;
-
-        public void AddVisual(DrawingVisual visual, ShapeType type, string label)
+        // Метод для добавления квадрата
+        public void AddSquare(Point position)
         {
-            if (visual == null) return;
-            visuals.Add(new ShapeVisual(visual, type, label));
-            AddVisualChild(visual);
-            AddLogicalChild(visual);
+            Rectangle square = CreateRectangle(position);
+            this.Children.Add(square);
+            SubscribeToMouseEvents(square);
         }
 
-        public void DeleteVisual(DrawingVisual visual)
+        // Создание круга
+        private Ellipse CreateEllipse(Point position)
         {
-            if (visual == null) return;
-            var shapeVisual = visuals.FirstOrDefault(s => s.Visual == visual);
-            if (shapeVisual != null)
+            Ellipse circle = new Ellipse
             {
-                visuals.Remove(shapeVisual);
-                RemoveVisualChild(visual);
-                RemoveLogicalChild(visual);
+                Width = 30,
+                Height = 30,
+                Stroke = Brushes.SteelBlue,
+                StrokeThickness = 3,
+                Fill = Brushes.AliceBlue
+            };
+            SetPosition(circle, position);
+            return circle;
+        }
+
+        // Создание квадрата
+        private Rectangle CreateRectangle(Point position)
+        {
+            Rectangle square = new Rectangle
+            {
+                Width = 30,
+                Height = 30,
+                Stroke = Brushes.SteelBlue,
+                StrokeThickness = 3,
+                Fill = Brushes.AliceBlue
+            };
+            SetPosition(square, position);
+            return square;
+        }
+
+        // Установка позиции фигуры
+        private void SetPosition(Shape shape, Point position)
+        {
+            Canvas.SetLeft(shape, position.X);
+            Canvas.SetTop(shape, position.Y);
+        }
+
+        // Подписка на события мыши
+        private void SubscribeToMouseEvents(UIElement element)
+        {
+            element.MouseLeftButtonDown += Shape_MouseLeftButtonDown;
+            element.MouseRightButtonDown += Shape_MouseRightButtonDown; // Обработчик для правой кнопки
+            element.MouseMove += Shape_MouseMove;
+            element.MouseLeftButtonUp += Shape_MouseLeftButtonUp;
+        }
+
+        // Обработчик нажатия левой кнопки мыши
+        private void Shape_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            isDragging = true;
+            clickPosition = e.GetPosition(this);
+            selectedShape = sender as UIElement; // Сохраняем ссылку на выбранную фигуру
+            selectedShape.CaptureMouse();
+        }
+
+        // Обработчик нажатия правой кнопки мыши
+        private void Shape_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var shape = sender as UIElement;
+            if (shape != null)
+            {
+                // Удаляем фигуру при нажатии правой кнопки мыши
+                this.Children.Remove(shape);
+                e.Handled = true; // Устанавливаем флаг, чтобы предотвратить дальнейшую обработку события
             }
         }
 
+        // Обработчик движения мыши
+        private void Shape_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging && selectedShape != null)
+            {
+                var shape = selectedShape;
+                Point currentPosition = e.GetPosition(this);
+                double offsetX = currentPosition.X - clickPosition.X;
+                double offsetY = currentPosition.Y - clickPosition.Y;
+
+                double newLeft = Canvas.GetLeft(shape) + offsetX;
+                double newTop = Canvas.GetTop(shape) + offsetY;
+
+                Canvas.SetLeft(shape, newLeft);
+                Canvas.SetTop(shape, newTop);
+
+                clickPosition = currentPosition; // Обновляем позицию клика
+            }
+        }
+
+        // Обработчик отпускания левой кнопки мыши
+        private void Shape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            isDragging = false;
+            if (selectedShape != null)
+            {
+                selectedShape.ReleaseMouseCapture();
+                selectedShape = null; // Сбрасываем ссылку на выбранную фигуру
+            }
+        }
+
+        // Метод для очистки холста
+        public void Clear()
+        {
+            this.Children.Clear(); // Очищает все дочерние элементы
+        }
+
+        // Метод для добавления визуализации
+        public void AddVisual(DrawingVisual visual, ShapeType type, string label, Point position)
+        {
+            if (visual == null)
+            {
+                throw new ArgumentNullException(nameof(visual));
+            }
+
+            // Создаем DrawingImage из DrawingVisual
+            DrawingImage drawingImage = new DrawingImage(visual.Drawing); // Предполагается, что visual.Drawing доступен
+            Image image = new Image { Source = drawingImage };
+
+            // Устанавливаем позицию для Image
+            Canvas.SetLeft(image, position.X);
+            Canvas.SetTop(image, position.Y);
+
+            // Добавляем Image в Children
+            this.Children.Add(image);
+        }
+
+        // Метод для получения визуализации по позиции
         public ShapeVisual GetVisual(Point point)
         {
-            HitTestResult hitResult = VisualTreeHelper.HitTest(this, point);
-            if (hitResult != null)
+            foreach (var child in this.Children)
             {
-                var drawingVisual = hitResult.VisualHit as DrawingVisual;
-                if (drawingVisual != null)
+                if (child is Shape shape)
                 {
-                    return visuals.FirstOrDefault(v => v.Visual == drawingVisual);
-                }
-            }
-            return null;
-        }
-
-        private readonly List<DrawingVisual> hits = new List<DrawingVisual>();
-
-        public List<DrawingVisual> GetVisuals(Geometry region)
-        {
-            hits.Clear();
-            GeometryHitTestParameters parameters = new GeometryHitTestParameters(region);
-            HitTestResultCallback callback = HitTestCallback;
-            VisualTreeHelper.HitTest(this, null, callback, parameters);
-            return hits;
-        }
-
-        private HitTestResultBehavior HitTestCallback(HitTestResult result)
-        {
-            if (result is GeometryHitTestResult geometryResult)
-            {
-                DrawingVisual drawingVisual = result.VisualHit as DrawingVisual;
-                if (drawingVisual != null && geometryResult.IntersectionDetail == IntersectionDetail.FullyInside)
-                {
-                    ShapeVisual shapeVisual = visuals.FirstOrDefault(v => v.Visual == drawingVisual);
-                    if (shapeVisual != null)
+                    Rect bounds = new Rect(Canvas.GetLeft(shape), Canvas.GetTop(shape), shape.Width, shape.Height);
+                    if (bounds.Contains(point))
                     {
-                        hits.Add(shapeVisual.Visual);
+                        // Создаем DrawingVisual на основе Shape
+                        DrawingVisual drawingVisual = new DrawingVisual();
+                        using (DrawingContext dc = drawingVisual.RenderOpen())
+                        {
+                            // Создаем Pen из Stroke
+                            Pen pen = new Pen(shape.Stroke, shape.StrokeThickness);
+
+                            if (shape is Rectangle rectangle)
+                            {
+                                dc.DrawRectangle(rectangle.Fill, pen, new Rect(0, 0, rectangle.Width, rectangle.Height));
+                            }
+                            else if (shape is Ellipse ellipse)
+                            {
+                                dc.DrawEllipse(ellipse.Fill, pen, new Point(ellipse.Width / 2, ellipse.Height / 2), ellipse.Width / 2, ellipse.Height / 2);
+                            }
+                        }
+
+                        return new ShapeVisual(drawingVisual, shape is Rectangle ? ShapeType.Square : ShapeType.Circle, "Label", true);
                     }
                 }
             }
-            return HitTestResultBehavior.Continue;
+            return null; // Если визуализация не найдена
         }
 
-        // Метод для очистки визуализаций
-        public void Clear()
+        // Метод для получения визуального элемента по DrawingVisual
+        public UIElement GetVisualElement(DrawingVisual visual)
         {
-            foreach (var visual in visuals.ToList())
+            foreach (var child in this.Children)
             {
-                DeleteVisual(visual.Visual);
+                if (child is Image image && image.Source is DrawingImage drawingImage)
+                {
+                    // Сравниваем DrawingVisual с DrawingImage
+                    if (drawingImage.Drawing == visual.Drawing)
+                    {
+                        return image; // Возвращаем UIElement, соответствующий DrawingVisual
+                    }
+                }
+            }
+            return null; // Если не найдено
+        }
+
+        // Метод для удаления визуализации
+        public void DeleteVisual(UIElement visual)
+        {
+            if (visual != null)
+            {
+                this.Children.Remove(visual);
             }
         }
     }

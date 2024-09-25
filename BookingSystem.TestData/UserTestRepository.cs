@@ -128,5 +128,24 @@ namespace BookingSystem.TestData
         {
             throw new NotImplementedException();
         }
+
+        public Task<User> FirstOrDefaultAsync(Expression<Func<User, bool>> predicate)
+        {
+            return Task.FromResult(users.AsQueryable().FirstOrDefault(predicate));
+        }
+
+        // Реализация метода Remove
+        public void Remove(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            users.Remove(entity);
+        }
+
+        public Task<bool> RemoveAsync(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Remove(entity);
+            return Task.FromResult(true);
+        }
     }
 }

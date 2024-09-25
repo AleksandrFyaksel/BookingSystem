@@ -13,7 +13,8 @@ namespace BookingSystem.Domain.Entities
         public int FloorID { get; set; }  // Идентификатор этажа, на котором находится парковочное место
 
         public string Label { get; set; }  // Метка парковочного места
-        public string Position { get; set; }  // Позиция парковочного места
+        public int PositionX { get; set; }  // Позиция парковочного места по оси X
+        public int PositionY { get; set; }  // Позиция парковочного места по оси Y
         public bool IsAvailable { get; set; }  // Статус доступности (свободно/занято)
 
         // Навигационные свойства
