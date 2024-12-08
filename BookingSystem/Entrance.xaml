@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Entrance" Height="450" Width="800">
+        Title="Entrance" Height="450" Width="800" WindowState="Maximized" >
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -34,7 +34,7 @@
 
                 <Grid Margin="0 0 0 10">
                     <TextBox x:Name="texBoxLogin" Margin="0" Height="30" />
-                    <TextBlock Text="Введите логин" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" Visibility="{Binding ElementName=texBoxLogin, Path=IsFocused, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
+                    <TextBlock Text="Введите Имя Фамилию" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" Visibility="{Binding ElementName=texBoxLogin, Path=IsFocused, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Hidden'}"/>
                 </Grid>
 
                 <Grid Margin="0 0 0 10">

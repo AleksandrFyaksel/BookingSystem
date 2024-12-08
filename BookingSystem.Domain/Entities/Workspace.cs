@@ -20,16 +20,31 @@ namespace BookingSystem.Domain.Entities
         public virtual Floor Floor { get; set; }  // Связь с этажом
         public virtual ICollection<Booking> Bookings { get; set; }  // Связь с бронированиями
 
+        // Конструктор для инициализации коллекции бронирований
+        public Workspace()
+        {
+            Bookings = new List<Booking>();  // Инициализация коллекции бронирований
+            IsAvailable = true; // По умолчанию рабочее место доступно
+        }
+
         // Метод для установки статуса рабочего места
         public void SetAvailability(bool isAvailable)
         {
             IsAvailable = isAvailable;  // Устанавливает статус доступности
         }
 
-        // Конструктор для инициализации коллекции бронирований
-        public Workspace()
+        // Метод для бронирования рабочего места
+        public void Book()
         {
-            Bookings = new List<Booking>();  // Инициализация коллекции бронирований
+            if (IsAvailable)
+            {
+                IsAvailable = false; // Устанавливаем статус как занятое
+                // Логика для добавления бронирования в коллекцию Bookings
+            }
+            else
+            {
+                throw new InvalidOperationException("Рабочее место уже забронировано.");
+            }
         }
     }
 }

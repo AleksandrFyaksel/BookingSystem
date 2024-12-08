@@ -2,14 +2,13 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using BookingSystem.Domain.Entities;
-using BookingSystem.Business;
-using BookingSystem.Commands;
-using Microsoft.EntityFrameworkCore;
-using BookingSystem.Data;
-using System.Windows;
 using BookingSystem.Business.Managers;
+using Microsoft.EntityFrameworkCore;
+using BookingSystem.Commands;
+using BookingSystem.Data;
 
 namespace BookingSystem.ViewModels
 {
@@ -69,7 +68,7 @@ namespace BookingSystem.ViewModels
 
             if (workspace.FloorID == 0)
             {
-                MessageBox.Show("Не удалось получить ID офиса или этажа.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не удалось получить ID этажа.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -106,14 +105,11 @@ namespace BookingSystem.ViewModels
 
         private async Task OnDeleteWorkspaceExecuted(int workspaceId)
         {
-            var result = await bookingManager.DeleteWorkspaceAsync(workspaceId);
-            if (result)
+            await bookingManager.DeleteWorkspaceAsync(workspaceId); // Удаляем рабочее место
+            var workspaceToRemove = Workspaces.FirstOrDefault(w => w.WorkspaceID == workspaceId);
+            if (workspaceToRemove != null)
             {
-                var workspaceToRemove = Workspaces.FirstOrDefault(w => w.WorkspaceID == workspaceId);
-                if (workspaceToRemove != null)
-                {
-                    Workspaces.Remove(workspaceToRemove);
-                }
+                Workspaces.Remove(workspaceToRemove);
                 MessageBox.Show("Рабочее место успешно удалено.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
@@ -124,14 +120,11 @@ namespace BookingSystem.ViewModels
 
         private async Task OnDeleteParkingSpaceExecuted(int parkingSpaceId)
         {
-            var result = await bookingManager.DeleteParkingSpaceAsync(parkingSpaceId);
-            if (result)
+            await bookingManager.DeleteParkingSpaceAsync(parkingSpaceId); // Удаляем парковочное место
+            var parkingSpaceToRemove = ParkingSpaces.FirstOrDefault(p => p.ParkingSpaceID == parkingSpaceId);
+            if (parkingSpaceToRemove != null)
             {
-                var parkingSpaceToRemove = ParkingSpaces.FirstOrDefault(p => p.ParkingSpaceID == parkingSpaceId);
-                if (parkingSpaceToRemove != null)
-                {
-                    ParkingSpaces.Remove(parkingSpaceToRemove);
-                }
+                ParkingSpaces.Remove(parkingSpaceToRemove);
                 MessageBox.Show("Парковочное место успешно удалено.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else

@@ -26,7 +26,7 @@ namespace Drawing
         public DrawingVisual Visual { get; set; }
         public ShapeType Type { get; set; }
         public string Label { get; set; }
-        public bool IsBooked { get; set; } // Новое свойство для отслеживания статуса бронирования
+        public bool IsBooked { get; set; } // Статус бронирования
 
         public ShapeVisual(DrawingVisual visual, ShapeType type, string label = "", bool isBooked = false)
         {
@@ -36,6 +36,9 @@ namespace Drawing
             IsBooked = isBooked; // Инициализация статуса
         }
 
+        /// <summary>
+        /// Сохраняет фигуру в базе данных.
+        /// </summary>
         public async Task SaveToDatabase(BookingManager bookingManager)
         {
             if (Type == ShapeType.Square)
@@ -50,7 +53,9 @@ namespace Drawing
             }
         }
 
-        // Метод для обновления цвета фигуры в зависимости от статуса бронирования
+        /// <summary>
+        /// Обновляет цвет фигуры в зависимости от статуса бронирования.
+        /// </summary>
         public void UpdateVisualColor()
         {
             using (DrawingContext dc = Visual.RenderOpen())
@@ -68,7 +73,7 @@ namespace Drawing
                     dc.DrawEllipse(brush, null, new Point(15, 15), 15, 15); // Рисуем круг
                 }
 
-                // Добавьте текст или метку, если необходимо
+                // Добавляем текст или метку, если необходимо
                 FormattedText formattedText = new FormattedText(
                     Label,
                     System.Globalization.CultureInfo.CurrentCulture,

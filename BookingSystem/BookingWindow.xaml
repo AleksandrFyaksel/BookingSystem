@@ -66,13 +66,20 @@
         </ToolBarTray>
 
         <Border Grid.Column="1" Margin="3" BorderBrush="SteelBlue" BorderThickness="1">
-            <drawing:DrawingCanvas x:Name="drawingSurface" Background="White" ClipToBounds="True"
-                                   MouseLeftButtonDown="drawingSurface_MouseLeftButtonDown"
-                                   MouseLeftButtonUp="drawingSurface_MouseLeftButtonUp"
-                                   MouseRightButtonDown="drawingSurface_MouseRightButtonDown"
-                                   MouseRightButtonUp="drawingSurface_MouseRightButtonUp"
-                                   MouseMove="drawingSurface_MouseMove">
-            </drawing:DrawingCanvas>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="FloorImageControl" Width="245" Height="224" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.RowSpan="2" />
+                <drawing:DrawingCanvas x:Name="drawingSurface" Background="White" ClipToBounds="True"
+                                  MouseLeftButtonDown="drawingSurface_MouseLeftButtonDown"
+                                  MouseLeftButtonUp="drawingSurface_MouseLeftButtonUp"
+                                  MouseRightButtonDown="drawingSurface_MouseRightButtonDown"
+                                  MouseRightButtonUp="drawingSurface_MouseRightButtonUp"
+                                  MouseMove="drawingSurface_MouseMove" Grid.RowSpan="2">
+                </drawing:DrawingCanvas>
+            </Grid>
         </Border>
     </Grid>
 </Window>

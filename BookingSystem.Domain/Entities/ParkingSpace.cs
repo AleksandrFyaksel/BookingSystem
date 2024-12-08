@@ -2,8 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-
-namespace BookingSystem.Domain.Entities 
+namespace BookingSystem.Domain.Entities
 {
     public class ParkingSpace
     {
@@ -25,6 +24,27 @@ namespace BookingSystem.Domain.Entities
         public ParkingSpace()
         {
             Bookings = new List<Booking>();  // Инициализация коллекции бронирований
+            IsAvailable = true; // По умолчанию парковочное место доступно
+        }
+
+        // Метод для установки статуса парковочного места
+        public void SetAvailability(bool isAvailable)
+        {
+            IsAvailable = isAvailable;  // Устанавливает статус доступности
+        }
+
+        // Метод для бронирования парковочного места
+        public void Book()
+        {
+            if (IsAvailable)
+            {
+                IsAvailable = false; // Устанавливаем статус как занятое
+                // Логика для добавления бронирования в коллекцию Bookings
+            }
+            else
+            {
+                throw new InvalidOperationException("Парковочное место уже забронировано.");
+            }
         }
     }
 }

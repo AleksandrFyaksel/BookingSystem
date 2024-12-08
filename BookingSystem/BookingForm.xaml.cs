@@ -82,26 +82,24 @@ namespace BookingSystem
                 return;
             }
 
-            AdditionalRequirements = AdditionalRequirementsTextBox.Text;
-
             // Создание объекта Booking
             var booking = new Booking
             {
-                UserID = UserID,
-                WorkspaceID = WorkspaceID,
-                ParkingSpaceID = ParkingSpaceID,
-             
-                BookingStatusID = BookingStatusID,
+                UserID = UserID, // Убедитесь, что UserID установлен
+                WorkspaceID = WorkspaceID, // Убедитесь, что WorkspaceID установлен
+                ParkingSpaceID = ParkingSpaceID, // Убедитесь, что ParkingSpaceID установлен
+                BookingStatusID = BookingStatusID, // Убедитесь, что BookingStatusID установлен
                 BookingDate = selectedDate.Value,
                 StartDateTime = selectedDate.Value.Add(startTimeSpan),
                 EndDateTime = selectedDate.Value.Add(endTimeSpan),
-                AdditionalRequirements = AdditionalRequirements
+                AdditionalRequirements = AdditionalRequirementsTextBox.Text
             };
 
             // Сохранение бронирования в базе данных
             try
             {
                 await _bookingManager.CreateBookingAsync(booking);
+                MessageBox.Show("Бронирование успешно создано!");
                 this.DialogResult = true; // Закрываем окно с результатом "ОК"
                 this.Close();
             }
